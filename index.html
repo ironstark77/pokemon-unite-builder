@@ -739,6 +739,13 @@ body {
 </footer>
 
 <script>
+
+// === Data declarations (hoisted; will be assigned below) ===
+var POKEMON_DATA_RAW = null;
+var ITEMS_DATA_RAW = null;
+var EMBLEMS_DATA_RAW = null;
+
+
 /* ============================================================
    DATA (embedded inline for portability - no backend needed)
    ============================================================ */
@@ -917,14 +924,10 @@ let POKEMON_DATA = [];
    ============================================================ */
 
 function init() {
-  // Data is loaded via <script> tags before this script runs (data_pokemon.js, data_items.js, data_emblems.js)
-  POKEMON_DATA = (window.POKEMON_DATA_RAW && window.POKEMON_DATA_RAW.pokemon) || [];
-  // If raw not present (running from filesystem with separate JSON files), fall back to fetching
+  // POKEMON_DATA is already populated by the bootstrap block at the end of the script
+  // (which assigns from the embedded POKEMON_DATA_RAW). If empty for any reason, log it.
   if (POKEMON_DATA.length === 0) {
-    // Embedded fallback: data was already inlined below
-    if (typeof EMBEDDED_POKEMON !== 'undefined') {
-      POKEMON_DATA = EMBEDDED_POKEMON;
-    }
+    console.error('POKEMON_DATA is empty. Raw data:', POKEMON_DATA_RAW);
   }
   setupLangSwitcher();
   setupRoleFilter();
@@ -1206,7 +1209,7 @@ function shadeColor(hex, percent) {
 // =====================================================================
 // EMBEDDED DATA (inline so app works offline and on file:// with no CORS)
 // =====================================================================
-const POKEMON_DATA_RAW = {
+var POKEMON_DATA_RAW = {
   "version": "1.23.1.1",
   "pokemon": [
     {
@@ -2545,7 +2548,7 @@ const POKEMON_DATA_RAW = {
     }
   ]
 };
-const ITEMS_DATA_RAW = {
+var ITEMS_DATA_RAW = {
   "version": "1.23.1.1",
   "metadata": {
     "sources": [
@@ -2950,7 +2953,7 @@ const ITEMS_DATA_RAW = {
      "synergy_es": "Jugadas de dunk grande"}
   ]
 };
-const EMBLEMS_DATA_RAW = {
+var EMBLEMS_DATA_RAW = {
   "version": "1.23.1.1",
   "emblems": {
     "system_explainer_en": "Emblems are color-coded items that grant stat bonuses. You can equip up to 15 emblems. Emblems of the same color stack to unlock set bonuses at certain thresholds (e.g. 2/4/6 for some colors, 3/5/7 for others). Each emblem also has its own individual stat (HP, Atk, Sp.Atk, etc) based on its tier (Bronze < Silver < Gold > Platinum; Platinum is the rarest, with both +HP and -HP stat options).",
@@ -3146,7 +3149,8 @@ if (EMBLEMS_DATA_RAW && EMBLEMS_DATA_RAW.emblems) {
   if (EMBLEMS_DATA_RAW.emblems.tested_sets) EMBLEMS.tested_sets = EMBLEMS_DATA_RAW.emblems.tested_sets;
 }
 
-// Bootstrap
+// Bootstrap: apply data, then init (must happen AFTER data assignments above)
+if (typeof POKEMON_DATA_RAW !== "undefined") { POKEMON_DATA = (POKEMON_DATA_RAW && POKEMON_DATA_RAW.pokemon) || []; }
 init();
 </script>
 </body>
