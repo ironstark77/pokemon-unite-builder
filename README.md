@@ -2,14 +2,17 @@
 
 App web personal para construir y consultar builds de Pokémon Unite (parche 1.23.1.1).
 
-## Cómo usar
+## 🚀 Abrir directamente
 
-1. Bajá los 4 archivos a una carpeta local.
-2. Abrí `index.html` con doble click en cualquier navegador moderno.
-3. Seleccioná un Pokémon de la barra izquierda, filtrá por rol o usá el buscador.
-4. Cambiá idioma ES/EN con el botón arriba a la derecha.
+**[https://ironstark77.github.io/pokemon-unite-builder/](https://ironstark77.github.io/pokemon-unite-builder/)**
 
-No necesita servidor ni instalación. Funciona 100% local.
+GitHub Pages sirve el `index.html` con todos los datos embebidos (no necesita descargar nada).
+
+## También podés
+
+1. Bajar `index.html` (147 KB — todo embebido)
+2. Doble click para abrir en cualquier navegador
+3. Funciona offline
 
 ## Contenido
 
@@ -19,3 +22,11 @@ No necesita servidor ni instalación. Funciona 100% local.
 - Bilingüe ES/EN
 - Diseño oscuro con estética Pokémon Unite
 - Sprites (PokéAPI) + iconos de items (Serebii) — URLs verificadas con HEAD=200
+
+## Fuentes
+
+- Serebii.net/pokemonunite/ (mecánicas, items, emblemas)
+- PokeAPI/sprites (sprites Pokémon)
+- FoxForge-GG patch-1.23.1.1.json (builds meta)
+- MateusBMP emblem data
+- DipsanaRoy arsenal (color sets testeados)
