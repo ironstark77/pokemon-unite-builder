@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pokémon Unite — Build Maker</title>
+<link rel="preconnect" href="https://raw.githubusercontent.com">
+<link rel="preconnect" href="https://www.serebii.net">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;600;700;800&display=swap">
+<style>
+/* ============================================================
+   POKÉMON UNITE BUILD MAKER — STYLE
+   Dark, neon-accented, modern, inspired by Unite UI
+   ============================================================ */
+:root {
+  --bg-base: #0a0e1a;
+  --bg-elevated: #111726;
+  --bg-card: #1a2236;
+  --bg-card-hover: #232b42;
+  --border: #2a3550;
+  --border-bright: #3d4d72;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --accent-blue: #3b82f6;
+  --accent-yellow: #fbbf24;
+  --accent-red: #ef4444;
+  --accent-green: #22c55e;
+  --accent-purple: #a855f7;
+  --accent-orange: #f97316;
+  --accent-pink: #ec4899;
+  --gradient-blue: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  --gradient-yellow: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  --gradient-red: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  --gradient-green: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  --gradient-purple: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);
+  --gradient-orange: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  --gradient-pink: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4);
+  --shadow-lg: 0 10px 25px -5px rgb(0 0 0 / 0.5);
+  --shadow-glow-blue: 0 0 20px rgba(59, 130, 246, 0.3);
+  --shadow-glow-yellow: 0 0 20px rgba(251, 191, 36, 0.3);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-base);
+  color: var(--text-primary);
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(59, 130, 246, 0.15), transparent),
+    radial-gradient(ellipse 60% 50% at 100% 100%, rgba(168, 85, 247, 0.1), transparent),
+    radial-gradient(ellipse 60% 50% at 0% 100%, rgba(34, 197, 94, 0.1), transparent);
+  background-attachment: fixed;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 14, 26, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.app-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #fbbf24 0%, #f97316 50%, #ef4444 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.app-title .pokeball {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #ef4444 50%, #f1f5f9 50%);
+  border: 3px solid #1a2236;
+  position: relative;
+  flex-shrink: 0;
+}
+.app-title .pokeball::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: #f1f5f9;
+  border: 2px solid #1a2236;
+  border-radius: 50%;
+}
+.lang-switcher {
+  display: flex;
+  gap: 0.25rem;
+  background: var(--bg-card);
+  padding: 0.25rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+}
+.lang-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+.lang-btn:hover { color: var(--text-primary); }
+.lang-btn.active {
+  background: var(--gradient-blue);
+  color: white;
+  box-shadow: var(--shadow-glow-blue);
+}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+@media (max-width: 1024px) {
+  .layout { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   SIDEBAR (pokemon selector)
+   ============================================================ */
+.sidebar {
+  background: var(--bg-elevated);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  position: sticky;
+  top: 5.5rem;
+  max-height: calc(100vh - 6.5rem);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-bright) transparent;
+}
+.sidebar::-webkit-scrollbar { width: 6px; }
+.sidebar::-webkit-scrollbar-track { background: transparent; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 3px; }
+
+.sidebar h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.sidebar h2::before {
+  content: '';
+  width: 3px;
+  height: 14px;
+  background: var(--accent-yellow);
+  border-radius: 2px;
+}
+.filter-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+.search-input:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+.search-input::placeholder { color: var(--text-muted); }
+.role-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.role-chip {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+.role-chip:hover { background: var(--bg-card-hover); color: var(--text-primary); }
+.role-chip.active {
+  color: white;
+  border-color: transparent;
+}
+.role-chip[data-role="Attacker"].active { background: var(--gradient-red); }
+.role-chip[data-role="All-Rounder"].active { background: var(--gradient-orange); }
+.role-chip[data-role="Defender"].active { background: var(--gradient-blue); }
+.role-chip[data-role="Speedster"].active { background: var(--gradient-yellow); }
+.role-chip[data-role="Supporter"].active { background: var(--gradient-green); }
+.role-chip[data-role="All"].active { background: var(--gradient-purple); }
+
+.pokemon-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+.pokemon-tile {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.5rem 0.3rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.pokemon-tile:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-bright);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.pokemon-tile.selected {
+  border-color: var(--accent-yellow);
+  box-shadow: 0 0 0 2px var(--accent-yellow), var(--shadow-glow-yellow);
+  background: var(--bg-card-hover);
+}
+.pokemon-tile img {
+  width: 56px;
+  height: 56px;
+  image-rendering: pixelated;
+  display: block;
+  margin: 0 auto 0.25rem;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+.pokemon-tile .pkmn-name {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pokemon-tile .pkmn-role {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-top: 0.1rem;
+}
+
+/* ============================================================
+   MAIN CONTENT
+   ============================================================ */
+.main {
+  min-width: 0;
+}
+.empty-state {
+  background: var(--bg-elevated);
+  border: 1px dashed var(--border-bright);
+  border-radius: 16px;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: var(--text-secondary);
+}
+.empty-state .big-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  filter: grayscale(0.5);
+}
+.empty-state h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+/* ============================================================
+   POKEMON HEADER CARD
+   ============================================================ */
+.pkmn-header {
+  background: var(--bg-elevated);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.pkmn-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--header-gradient, var(--gradient-blue));
+  opacity: 0.15;
+  z-index: 0;
+}
+.pkmn-header > * { position: relative; z-index: 1; }
+.pkmn-sprite {
+  width: 128px;
+  height: 128px;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 8px 12px rgba(0,0,0,0.5));
+  flex-shrink: 0;
+}
+.pkmn-info { flex: 1; min-width: 0; }
+.pkmn-name-big {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.pkmn-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+.tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.tag.role-Attacker { background: var(--gradient-red); }
+.tag.role-All-Rounder { background: var(--gradient-orange); }
+.tag.role-Defender { background: var(--gradient-blue); }
+.tag.role-Speedster { background: var(--gradient-yellow); color: #1a1a1a; }
+.tag.role-Supporter { background: var(--gradient-green); }
+
+/* ============================================================
+   SECTION CARD
+   ============================================================ */
+.section {
+  background: var(--bg-elevated);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.section h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.section h2 .icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+.section h2 .icon.items { background: var(--gradient-yellow); }
+.section h2 .icon.battle { background: var(--gradient-red); }
+.section h2 .icon.moves { background: var(--gradient-purple); }
+.section h2 .icon.emblems { background: var(--gradient-blue); }
+.section h2 .icon.tips { background: var(--gradient-green); }
+.section h2 .icon.counters { background: var(--gradient-red); }
+.section h2 .icon.beats { background: var(--gradient-green); }
+
+/* ============================================================
+   HELD ITEMS GRID
+   ============================================================ */
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+@media (max-width: 768px) {
+  .items-grid { grid-template-columns: 1fr; }
+}
+.item-slot {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+  transition: all 0.2s;
+}
+.item-slot:hover {
+  border-color: var(--border-bright);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.item-slot .slot-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.item-slot .slot-num {
+  display: inline-flex;
+  width: 18px;
+  height: 18px;
+  background: var(--accent-yellow);
+  color: #1a1a1a;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+.item-visual {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.item-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(0,0,0,0.3);
+  border-radius: 10px;
+  padding: 4px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+}
+.item-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+.item-effect {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-top: 0.3rem;
+}
+.item-synergy {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-style: italic;
+  line-height: 1.4;
+  margin-top: 0.4rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed var(--border);
+}
+
+/* ============================================================
+   BATTLE ITEM + MOVES
+   ============================================================ */
+.battle-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+@media (max-width: 640px) {
+  .battle-row { grid-template-columns: 1fr; }
+}
+.battle-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.battle-card .item-icon { width: 64px; height: 64px; }
+.battle-card .item-name { font-size: 1rem; }
+.moves-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.move-line {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.8rem;
+  background: var(--bg-card);
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+.move-line .move-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  min-width: 80px;
+}
+.move-line.unite { background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(59, 130, 246, 0.2)); border: 1px solid rgba(168, 85, 247, 0.3); }
+.move-line .move-name { font-weight: 600; color: var(--text-primary); }
+
+/* ============================================================
+   EMBLEMS
+   ============================================================ */
+.emblems-set {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.emblem-composition {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.emblem-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+}
+.emblem-pill .count {
+  background: rgba(0,0,0,0.4);
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+.emblem-pill .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.emblem-bonuses {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+.emblem-bonuses strong { color: var(--accent-yellow); }
+
+/* ============================================================
+   TIPS
+   ============================================================ */
+.tips-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.tips-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+.tips-list li::before {
+  content: '💡';
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+/* ============================================================
+   COUNTERS / BEATS
+   ============================================================ */
+.matchup-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+@media (max-width: 640px) {
+  .matchup-grid { grid-template-columns: 1fr; }
+}
+.matchup-col h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.matchup-col.counters h3 { color: var(--accent-red); }
+.matchup-col.beats h3 { color: var(--accent-green); }
+.matchup-pkmn {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+}
+.matchup-pkmn img {
+  width: 36px;
+  height: 36px;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+}
+.matchup-pkmn .reason {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: block;
+  margin-top: 0.1rem;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.app-footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  border-top: 1px solid var(--border);
+  margin-top: 2rem;
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in { animation: fadeIn 0.4s ease-out; }
+</style>
+</head>
+<body>
+
+<header class="app-header">
+  <h1 class="app-title"><span class="pokeball"></span> Pokémon Unite — Build Maker</h1>
+  <div class="lang-switcher">
+    <button class="lang-btn active" data-lang="es">ES</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2 id="sidebarTitle">Pokémon</h2>
+    <div class="filter-bar">
+      <input type="text" class="search-input" id="searchInput" placeholder="Buscar... (Pikachu)">
+      <div class="role-filter" id="roleFilter">
+        <button class="role-chip active" data-role="All" data-es="Todos" data-en="All">Todos</button>
+        <button class="role-chip" data-role="Attacker" data-es="Atacante" data-en="Attacker">Atacante</button>
+        <button class="role-chip" data-role="All-Rounder" data-es="Equilibrado" data-en="All-Rounder">Equilibrado</button>
+        <button class="role-chip" data-role="Defender" data-es="Defensor" data-en="Defender">Defensor</button>
+        <button class="role-chip" data-role="Speedster" data-es="Velocista" data-en="Speedster">Velocista</button>
+        <button class="role-chip" data-role="Supporter" data-es="Soporte" data-en="Supporter">Soporte</button>
+      </div>
+    </div>
+    <div class="pokemon-list" id="pokemonList"></div>
+  </aside>
+
+  <main class="main" id="mainContent">
+    <div class="empty-state">
+      <div class="big-icon">⚔️</div>
+      <h3 data-es="Elegí un Pokémon" data-en="Choose a Pokémon">Elegí un Pokémon</h3>
+      <p data-es="Seleccioná uno de la izquierda para ver su build recomendada, counters, emblemas y más." data-en="Select one from the left to see its recommended build, counters, emblems, and more.">Seleccioná uno de la izquierda para ver su build recomendada, counters, emblemas y más.</p>
+    </div>
+  </main>
+</div>
+
+<footer class="app-footer">
+  <span data-es="Datos del parche 1.23.1.1 • Hecho con cariño para vos • Atlas mini" data-en="Patch 1.23.1.1 data • Made with care for you • Atlas mini">Datos del parche 1.23.1.1 • Hecho con cariño para vos • Atlas mini</span>
+</footer>
+
+<script>
+/* ============================================================
+   DATA (embedded inline for portability - no backend needed)
+   ============================================================ */
+
+const I18N = {
+  es: {
+    // General
+    items: 'Artefactos (Held Items)',
+    battle: 'Ítem de Batalla',
+    moves: 'Movimientos',
+    emblems: 'Emblemas',
+    tips: 'Consejos',
+    counters: 'Te counterean',
+    beats: 'Vos countereás',
+    lane: 'Línea',
+    primary: 'Recomendado',
+    alt: 'Alternativa',
+    slot: 'Slot',
+    lane_label: 'Línea',
+    difficulty: 'Dificultad',
+    style: 'Estilo',
+    type: 'Tipo',
+    role: 'Rol',
+    unite_move: 'Movimiento Unite',
+    early_moves: 'Movimientos',
+    chose: 'Elegí:',
+    // Build sections
+    no_pkmn: 'Elegí un Pokémon',
+    no_pkmn_desc: 'Seleccioná uno de la izquierda para ver su build recomendada, counters, emblemas y más.',
+    search_ph: 'Buscar... (Pikachu)',
+    sidebarTitle: 'Pokémon',
+    alt_label: 'Alternativa',
+    bonuses: 'Bonuses',
+    // Roles
+    Attacker: 'Atacante',
+    'All-Rounder': 'Equilibrado',
+    Defender: 'Defensor',
+    Speedster: 'Velocista',
+    Supporter: 'Soporte',
+    // Types
+    physical: 'Físico',
+    special: 'Especial',
+    Ranged: 'A distancia',
+    Melee: 'Cuerpo a cuerpo',
+    // Difficulty
+    Beginner: 'Principiante',
+    Intermediate: 'Intermedio',
+    Expert: 'Experto'
+  },
+  en: {
+    items: 'Held Items',
+    battle: 'Battle Item',
+    moves: 'Moves',
+    emblems: 'Emblems',
+    tips: 'Tips',
+    counters: 'Counters',
+    beats: 'Counters these',
+    lane: 'Lane',
+    primary: 'Recommended',
+    alt: 'Alternative',
+    slot: 'Slot',
+    lane_label: 'Lane',
+    difficulty: 'Difficulty',
+    style: 'Style',
+    type: 'Type',
+    role: 'Role',
+    unite_move: 'Unite Move',
+    early_moves: 'Moves',
+    chose: 'Choose:',
+    no_pkmn: 'Choose a Pokémon',
+    no_pkmn_desc: 'Select one from the left to see its recommended build, counters, emblems, and more.',
+    search_ph: 'Search... (Pikachu)',
+    sidebarTitle: 'Pokémon',
+    alt_label: 'Alternative',
+    bonuses: 'Bonuses',
+    Attacker: 'Attacker',
+    'All-Rounder': 'All-Rounder',
+    Defender: 'Defender',
+    Speedster: 'Speedster',
+    Supporter: 'Supporter',
+    physical: 'Physical',
+    special: 'Special',
+    Ranged: 'Ranged',
+    Melee: 'Melee',
+    Beginner: 'Beginner',
+    Intermediate: 'Intermediate',
+    Expert: 'Expert'
+  }
+};
+
+let currentLang = 'es';
+let currentPokemon = null;
+let currentRoleFilter = 'All';
+let searchQuery = '';
+
+// Data: roles + held items + battle items (from data_items.json)
+const DATA = {
+  roles: {"Attacker":{"es":"Atacante","en":"Attacker","color_primary":"#ef4444"},"All-Rounder":{"es":"Equilibrado","en":"All-Rounder","color_primary":"#f97316"},"Defender":{"es":"Defensor","en":"Defender","color_primary":"#3b82f6"},"Speedster":{"es":"Velocista","en":"Speedster","color_primary":"#eab308"},"Supporter":{"es":"Soporte","en":"Supporter","color_primary":"#22c55e"}},
+  held_items: [
+    {"id":"muscleband","name_en":"Muscle Band","name_es":"Banda Musculosa","icon_url":"https://www.serebii.net/pokemonunite/items/muscleband.png","role_fit":["Attacker","All-Rounder"],"effect_en":"Basic attacks deal bonus damage = 1% of target's remaining HP","effect_es":"Ataques basicos hacen danio bonus = 1% del HP restante del objetivo","synergy_en":"Physical attackers with sustained basic attacks","synergy_es":"Atacantes fisicos con ataques basicos sostenidos"},
+    {"id":"scopelens","name_en":"Scope Lens","name_es":"Lente de Aumento","icon_url":"https://www.serebii.net/pokemonunite/items/scopelens.png","role_fit":["Speedster","Attacker","All-Rounder"],"effect_en":"Boosts basic-attack crit damage, scales with Attack","effect_es":"Aumenta danio critico de ataques basicos, escala con Ataque","synergy_en":"Crit-dependent Speedsters","synergy_es":"Velocistas dependientes de critico"},
+    {"id":"shellbell","name_en":"Shell Bell","name_es":"Cascabel Concha","icon_url":"https://www.serebii.net/pokemonunite/items/shellbell.png","role_fit":["Attacker","All-Rounder"],"effect_en":"On hit with a move, recovers >=45 HP (scales with Sp. Atk)","effect_es":"Al golpear con un movimiento, recupera >=45 HP","synergy_en":"Sustain fighters with Sp. Atk scaling moves","synergy_es":"Luchadores con sustain y movimientos que escalan con Atq. Esp."},
+    {"id":"wiseglasses","name_en":"Wise Glasses","name_es":"Gafas Sabias","icon_url":"https://www.serebii.net/pokemonunite/items/wiseglasses.png","role_fit":["Attacker"],"effect_en":"+3% Sp. Atk bonus","effect_es":"+3% bonus de Atq. Esp.","synergy_en":"Pure special attackers","synergy_es":"Atacantes especiales puros"},
+    {"id":"focusband","name_en":"Focus Band","name_es":"Banda Focus","icon_url":"https://www.serebii.net/pokemonunite/items/focusband.png","role_fit":["Defender","Supporter","All-Rounder"],"effect_en":"When low HP, recover 8% of lost HP/sec for 3s","effect_es":"Con HP bajo, recupera 8% del HP perdido/seg por 3s","synergy_en":"Frontline tanks and bruisers","synergy_es":"Tanques y luchadores de frente"},
+    {"id":"energyamplifier","name_en":"Energy Amplifier","name_es":"Amplificador de Energia","icon_url":"https://www.serebii.net/pokemonunite/items/energyamplifier.png","role_fit":["Attacker","All-Rounder"],"effect_en":"After Unite Move, +7% damage for 4s","effect_es":"Tras movimiento Unite, +7% de danio por 4s","synergy_en":"Pokemon with strong Unite Move","synergy_es":"Pokemon con movimiento Unite fuerte"},
+    {"id":"floatstone","name_en":"Float Stone","name_es":"Piedra Flotante","icon_url":"https://www.serebii.net/pokemonunite/items/floatstone.png","role_fit":["Speedster","Attacker","All-Rounder"],"effect_en":"+10% move speed out of combat","effect_es":"+10% de velocidad de movimiento fuera de combate","synergy_en":"Roamers and junglers","synergy_es":"Rotadores y junglers"},
+    {"id":"buddybarrier","name_en":"Buddy Barrier","name_es":"Barrera de Companero","icon_url":"https://www.serebii.net/pokemonunite/items/buddybarrier.png","role_fit":["Defender","Supporter","All-Rounder"],"effect_en":"On Unite Move, user + lowest-HP ally each get a shield = 20% max HP","effect_es":"En movimiento Unite, vos y aliado con menos HP reciben escudo 20% HP max","synergy_en":"Team-fight initiators","synergy_es":"Iniciadores de team fight"},
+    {"id":"scoreshield","name_en":"Score Shield","name_es":"Escudo de Puntuacion","icon_url":"https://www.serebii.net/pokemonunite/items/scoreshield.png","role_fit":["Supporter","Speedster","All"],"effect_en":"While scoring, shield = 5% max HP; goal can't be interrupted","effect_es":"Al anotar, escudo 5% HP max, gol no se interrumpe","synergy_en":"Heavy goal-scorers","synergy_es":"Anotadores pesados"},
+    {"id":"aeoscookie","name_en":"Aeos Cookie","name_es":"Galleta Aeos","icon_url":"https://www.serebii.net/pokemonunite/items/aeoscookie.png","role_fit":["Defender","Supporter"],"effect_en":"On scoring, +100 max HP (stacks)","effect_es":"Al anotar, +100 HP max (acumula)","synergy_en":"HP-stacking tanks","synergy_es":"Tanques que escalan con HP"},
+    {"id":"attackweight","name_en":"Attack Weight","name_es":"Peso de Ataque","icon_url":"https://www.serebii.net/pokemonunite/items/attackweight.png","role_fit":["Attacker","All-Rounder","Speedster"],"effect_en":"On scoring, +6 Attack (stacks)","effect_es":"Al anotar, +6 Ataque (acumula)","synergy_en":"Goal-stack carries","synergy_es":"Carries que anotan rapido"},
+    {"id":"spatkspecs","name_en":"Sp. Atk Specs","name_es":"Lentes de Atq. Esp.","icon_url":"https://www.serebii.net/pokemonunite/items/sp.atkspecs.png","role_fit":["Attacker"],"effect_en":"On scoring, +8 Sp. Atk (stacks)","effect_es":"Al anotar, +8 Atq. Esp. (acumula)","synergy_en":"Sp. Atk burst scalers","synergy_es":"Escaladores de Atq. Esp. burst"},
+    {"id":"leftovers","name_en":"Leftovers","name_es":"Sobras","icon_url":"https://www.serebii.net/pokemonunite/items/leftovers.png","role_fit":["Defender","Supporter","All-Rounder"],"effect_en":"Out of combat, recover 1% max HP/sec","effect_es":"Fuera de combate, recupera 1% HP max/seg","synergy_en":"Sustain in lane","synergy_es":"Sustain en linea"},
+    {"id":"expshare","name_en":"Exp. Share","name_es":"Repartir EXP","icon_url":"https://www.serebii.net/pokemonunite/items/exp.share.png","role_fit":["Supporter","Defender"],"effect_en":"Lowest-EXP ally gains 2 EXP/s; nearby allies get bonus EXP on wild KO","effect_es":"Aliado con menos EXP gana 2 EXP/s","synergy_en":"Supporters that lane with carry","synergy_es":"Soportes que lanean con carry"},
+    {"id":"assaultvest","name_en":"Assault Vest","name_es":"Chaleco de Asalto","icon_url":"https://www.serebii.net/pokemonunite/items/assaultvest.png","role_fit":["Defender","All-Rounder"],"effect_en":"Out of combat, shield nullifying Sp. Atk damage = 9% max HP","effect_es":"Fuera de combate, escudo anula danio Atq. Esp. 9% HP max","synergy_en":"Special defenders","synergy_es":"Defensores especiales"},
+    {"id":"rockyhelmet","name_en":"Rocky Helmet","name_es":"Casco Rocoso","icon_url":"https://www.serebii.net/pokemonunite/items/rockyhelmet.png","role_fit":["Defender","All-Rounder"],"effect_en":"Returns 3% of attacker's max HP as damage on hit","effect_es":"Devuelve 3% HP max del atacante como danio","synergy_en":"Melee bruisers","synergy_es":"Luchadores cuerpo a cuerpo"},
+    {"id":"razorclaw","name_en":"Razor Claw","name_es":"Garra Afilada","icon_url":"https://www.serebii.net/pokemonunite/items/razorclaw.png","role_fit":["All-Rounder","Speedster","Attacker"],"effect_en":"After using a move, next basic attack +10 dmg","effect_es":"Tras usar movimiento, proximo ataque basico +10 danio","synergy_en":"Crit auto-attackers","synergy_es":"Auto-atacantes con critico"},
+    {"id":"choicespecs","name_en":"Choice Specs","name_es":"Lentes de Eleccion","icon_url":"https://www.serebii.net/pokemonunite/items/choicespecs.png","role_fit":["Attacker"],"effect_en":"Move hits gain +40 damage (scales with Sp. Atk)","effect_es":"Golpes de movimiento ganan +40 danio","synergy_en":"Sp. Atk burst combos","synergy_es":"Combos burst de Atq. Esp."},
+    {"id":"weaknesspolicy","name_en":"Weakness Policy","name_es":"Poliza de Debilidad","icon_url":"https://www.serebii.net/pokemonunite/items/weaknesspolicy.png","role_fit":["All-Rounder","Attacker"],"effect_en":"On taking damage, +2% Atk (stacks up)","effect_es":"Al recibir danio, +2% Ataque (acumula)","synergy_en":"Brawlers that take damage","synergy_es":"Luchadores que reciben danio"},
+    {"id":"slickspoon","name_en":"Slick Spoon","name_es":"Cuchara Resbaladiza","icon_url":"https://www.serebii.net/pokemonunite/items/slickspoon.png","role_fit":["Attacker"],"effect_en":"Sp. Atk attacks ignore a % of target's Sp. Def","effect_es":"Ataques Atq. Esp. ignoran % Def. Esp.","synergy_en":"Special attackers vs. tanks","synergy_es":"Atacantes especiales vs. tanques"},
+    {"id":"choicescarf","name_en":"Choice Scarf","name_es":"Panuelo Choice","icon_url":"https://www.serebii.net/pokemonunite/items/choicescarf.png","role_fit":["Attacker","All-Rounder","Speedster"],"effect_en":"After 3 chained basic attacks, +30/35/40% movement speed","effect_es":"Tras 3 ataques basicos encadenados, +velocidad de movimiento","synergy_en":"Auto-attackers that need sticking power","synergy_es":"Auto-atacantes que necesitan pegarse"},
+    {"id":"rapidfirescarf","name_en":"Rapid Fire Scarf","name_es":"Bufanda Fuego Rapido","icon_url":"https://www.serebii.net/pokemonunite/items/rapid-firescarf.png","role_fit":["Attacker","Speedster"],"effect_en":"After 3 basic attacks, +basic attack speed briefly","effect_es":"Tras 3 ataques basicos, +vel. ataque basico brevemente","synergy_en":"Sustained auto-attackers","synergy_es":"Auto-atacantes sostenidos"},
+    {"id":"draincrown","name_en":"Drain Crown","name_es":"Corona Drenante","icon_url":"https://www.serebii.net/pokemonunite/items/draincrown.png","role_fit":["All-Rounder","Attacker"],"effect_en":"Lifesteal on Attack-based basic attacks","effect_es":"Robo de vida en ataques basicos de Ataque","synergy_en":"Sustained physical fighters","synergy_es":"Luchadores fisicos sostenidos"},
+    {"id":"resonantguard","name_en":"Resonant Guard","name_es":"Guardia Resonante","icon_url":"https://www.serebii.net/pokemonunite/items/resonantguard.png","role_fit":["Defender","Supporter"],"effect_en":"Periodic AoE shield on hit","effect_es":"Escudo AoE periodico al recibir golpe","synergy_en":"Frontline defenders","synergy_es":"Defensores de frente"},
+    {"id":"amuletcoin","name_en":"Amulet Coin","name_es":"Moneda Amuleto","icon_url":"https://www.serebii.net/pokemonunite/items/amuletcoin.png","role_fit":["Supporter"],"effect_en":"+100% Aeos from wilds, +10% goal score speed","effect_es":"+100% Aeos de salvajes, +10% velocidad anotacion","synergy_en":"Jungle farmers that score often","synergy_es":"Farmeros jungla que anotan seguido"},
+    {"id":"rescuehood","name_en":"Rescue Hood","name_es":"Caperuza de Rescate","icon_url":"https://www.serebii.net/pokemonunite/items/rescuehood.png","role_fit":["Supporter"],"effect_en":"Recovery and shield effects to allies are boosted","effect_es":"Efectos de recuperacion y escudo a aliados potenciados","synergy_en":"Pure healers","synergy_es":"Sanadores puros"},
+    {"id":"chargingcharm","name_en":"Charging Charm","name_es":"Encanto Cargador","icon_url":"https://www.serebii.net/pokemonunite/items/chargingcharm.png","role_fit":["Attacker","All-Rounder"],"effect_en":"Build energy via movement/basics; bonus damage at full","effect_es":"Acumula energia con movimiento, danio bonus al maximo","synergy_en":"Late-game scalers","synergy_es":"Escaladores de late game"},
+    {"id":"accelbracer","name_en":"Accel Bracer","name_es":"Brazal Acelerador","icon_url":"https://www.serebii.net/pokemonunite/items/accelbracer.png","role_fit":["Speedster","All-Rounder"],"effect_en":"On KO, +Atk (1/2 on assist)","effect_es":"Al eliminar, +Ataque (mitad en asistencia)","synergy_en":"Snowballers that get KOs","synergy_es":"Snowballers que eliminan"},
+    {"id":"drivelens","name_en":"Drive Lens","name_es":"Lente Impulso","icon_url":"https://www.serebii.net/pokemonunite/items/drivelens.png","role_fit":["Attacker"],"effect_en":"On KO, +Sp. Atk (1/2 on assist)","effect_es":"Al eliminar, +Atq. Esp. (mitad en asistencia)","synergy_en":"Sp. Atk snowballers","synergy_es":"Snowballers de Atq. Esp."},
+    {"id":"bigroot","name_en":"Big Root","name_es":"Raiz Grande","icon_url":"https://www.serebii.net/pokemonunite/items/bigroot.png","role_fit":["Supporter","Defender"],"effect_en":"Boosts HP recovery effects","effect_es":"Potencia efectos de recuperacion de HP","synergy_en":"Healing-amp supports","synergy_es":"Soportes que potencian sanacion"},
+    {"id":"tenacitybelt","name_en":"Tenacity Belt","name_es":"Cinturon Tenacidad","icon_url":"https://www.serebii.net/pokemonunite/items/tenacitybelt.png","role_fit":["Defender","All-Rounder"],"effect_en":"On hindrance, Def/Sp. Def up","effect_es":"Al recibir hindrance, Def/Def. Esp. suben","synergy_en":"Anti-CC tanks","synergy_es":"Tanques anti-CC"},
+    {"id":"cursebangle","name_en":"Curse Bangle","name_es":"Brazalete Maldicion","icon_url":"https://www.serebii.net/pokemonunite/items/cursebangle.png","role_fit":["All-Rounder"],"effect_en":"Weaken enemy HP recovery with basic attacks","effect_es":"Debilita recuperacion HP enemiga con ataques basicos","synergy_en":"Sustained fighters vs. sustain","synergy_es":"Luchadores sostenidos vs. sustain"},
+    {"id":"curseincense","name_en":"Curse Incense","name_es":"Incienso Maldicion","icon_url":"https://www.serebii.net/pokemonunite/items/curseincense.png","role_fit":["Attacker"],"effect_en":"Weaken enemy HP recovery with Sp. Atk moves","effect_es":"Debilita recuperacion HP enemiga con Atq. Esp.","synergy_en":"Sp. Atk users vs. sustain","synergy_es":"Usuarios Atq. Esp. vs. sustain"}
+  ],
+  battle_items: [
+    {"id":"potion","name_en":"Potion","name_es":"Pocion","icon_url":"https://www.serebii.net/pokemonunite/items/potion.png","cooldown_s":30,"effect_en":"Restores some HP","effect_es":"Restaura algo de HP","synergy_en":"Early lane sustain","synergy_es":"Sustain temprano en linea"},
+    {"id":"xattack","name_en":"X Attack","name_es":"X Ataque","icon_url":"https://www.serebii.net/pokemonunite/items/xattack.png","cooldown_s":40,"effect_en":"Raises Atk & Sp. Atk for 6.5s","effect_es":"Sube Ataque y Atq. Esp. por 6.5s","synergy_en":"All-in burst combos","synergy_es":"Combos todo-o-nada"},
+    {"id":"xspeed","name_en":"X Speed","name_es":"X Velocidad","icon_url":"https://www.serebii.net/pokemonunite/items/xspeed.png","cooldown_s":50,"effect_en":"Raises movement speed briefly","effect_es":"Sube velocidad de movimiento brevemente","synergy_en":"Chasing or escaping","synergy_es":"Perseguir o escapar"},
+    {"id":"fluffytail","name_en":"Fluffy Tail","name_es":"Cola Esponjosa","icon_url":"https://www.serebii.net/pokemonunite/items/fluffytail.png","cooldown_s":22,"effect_en":"Stuns wild Pokemon in front","effect_es":"Aturde Pokemon salvajes al frente","synergy_en":"Jungle objective securing","synergy_es":"Asegurar objetivos en jungla"},
+    {"id":"ejectbutton","name_en":"Eject Button","name_es":"Boton Eyectar","icon_url":"https://www.serebii.net/pokemonunite/items/ejectbutton.png","cooldown_s":80,"effect_en":"Quick dash in chosen direction","effect_es":"Dash rapido en direccion elegida","synergy_en":"Repositioning / diving","synergy_es":"Reposicionamiento / divear"},
+    {"id":"slowsmoke","name_en":"Slow Smoke","name_es":"Humo Lento","icon_url":"https://www.serebii.net/pokemonunite/items/slowsmoke.png","cooldown_s":35,"effect_en":"AoE slow cloud","effect_es":"Nube AoE de ralentizacion","synergy_en":"Disabling divers","synergy_es":"Deshabilitar diveadores"},
+    {"id":"fullheal","name_en":"Full Heal","name_es":"Cura Total","icon_url":"https://www.serebii.net/pokemonunite/items/fullheal.png","cooldown_s":55,"effect_en":"Cleanses status, brief hindrance immunity","effect_es":"Limpia estados, breve inmunidad a hindrance","synergy_en":"Anti-CC heavy enemy comps","synergy_es":"Comps enemigas con mucho CC"},
+    {"id":"goalgetter","name_en":"Goal-Getter","name_es":"Anotador","icon_url":"https://www.serebii.net/pokemonunite/items/goal-getter.png","cooldown_s":60,"effect_en":"Doubles scoring speed briefly","effect_es":"Duplica velocidad de anotacion brevemente","synergy_en":"Late-game double dunk","synergy_es":"Dunk doble en late game"},
+    {"id":"shedinjadoll","name_en":"Shedinja Doll","name_es":"Muneco Shedinja","icon_url":"https://www.serebii.net/pokemonunite/items/shedinjadoll.png","cooldown_s":45,"effect_en":"Invulnerable + status immune but can't act","effect_es":"Invulnerable + inmune a estados pero no podes actuar","synergy_en":"Emergency disengage","synergy_es":"Desenganche de emergencia"},
+    {"id":"goalhacker","name_en":"Goal Hacker","name_es":"Hackeador de Gol","icon_url":"https://www.serebii.net/pokemonunite/items/goalhacker.png","cooldown_s":90,"effect_en":"Buffs ally goal zone / nullifies enemy","effect_es":"Potencia porteria aliada / anula enemiga","synergy_en":"Big dunk plays","synergy_es":"Jugadas de dunk grande"}
+  ]
+};
+
+// Emblems data (simplified for app)
+const EMBLEMS = {
+  colors: {
+    "White": {"name_en":"White","name_es":"Blanco","stat_en":"HP","stat_es":"HP","hex":"#e5e7eb"},
+    "Brown": {"name_en":"Brown","name_es":"Marron","stat_en":"Attack","stat_es":"Ataque","hex":"#a16207"},
+    "Green": {"name_en":"Green","name_es":"Verde","stat_en":"Sp. Atk","stat_es":"Atq. Esp.","hex":"#22c55e"},
+    "Purple": {"name_en":"Purple","name_es":"Morado","stat_en":"Sp. Def","stat_es":"Def. Esp.","hex":"#a855f7"},
+    "Blue": {"name_en":"Blue","name_es":"Azul","stat_en":"Defense","stat_es":"Defensa","hex":"#3b82f6"},
+    "Red": {"name_en":"Red","name_es":"Rojo","stat_en":"Basic Atk Speed","stat_es":"Vel. Ataque Basico","hex":"#ef4444"},
+    "Black": {"name_en":"Black","name_es":"Negro","stat_en":"CDR","stat_es":"CDR","hex":"#1f2937"},
+    "Yellow": {"name_en":"Yellow","name_es":"Amarillo","stat_en":"Move Speed OOC","stat_es":"Vel. Mov. OOC","hex":"#eab308"},
+    "Pink": {"name_en":"Pink","name_es":"Rosa","stat_en":"Anti-Hindrance","stat_es":"Anti-Hindrance","hex":"#ec4899"}
+  },
+  tested_sets: [
+    {"name_en":"CDR Special Attacker","name_es":"CDR Atacante Especial","composition":{"Black":7,"Green":6,"White":2},"bonuses_en":"+4% CDR, +4% Sp.Atk, +1% HP","bonuses_es":"+4% CDR, +4% Atq.Esp., +1% HP","best_for_en":"Pikachu, Gengar, Cramorant, Sylveon","best_for_es":"Pikachu, Gengar, Cramorant, Sylveon"},
+    {"name_en":"Pursuit Absol","name_es":"Persecucion Absol","composition":{"White":6,"Brown":6,"Blue":2},"bonuses_en":"+4% Atk, +4% HP, +2% Def","bonuses_es":"+4% Atq, +4% HP, +2% Def","best_for_en":"Absol, Talonflame, Lucario","best_for_es":"Absol, Talonflame, Lucario"},
+    {"name_en":"Defender Tank","name_es":"Tanque Defensor","composition":{"White":6,"Blue":2,"Purple":2,"Brown":2},"bonuses_en":"+4% HP, +2% Def, +2% Sp.Def, +1% Atk","bonuses_es":"+4% HP, +2% Def, +2% Def.Esp., +1% Atq","best_for_en":"Snorlax, Sableye, Trevenant","best_for_es":"Snorlax, Sableye, Trevenant"},
+    {"name_en":"Anti-Stun","name_es":"Anti-Stun","composition":{"Brown":6,"White":4,"Pink":3,"Blue":2},"bonuses_en":"+4% Atk, +2% HP, +4% Anti-stun, +2% Def","bonuses_es":"+4% Atq, +2% HP, +4% Anti-stun, +2% Def","best_for_en":"Tsareena, Buzzwole, Dragonite","best_for_es":"Tsareena, Buzzwole, Dragonite"},
+    {"name_en":"Support Healer","name_es":"Soporte Sanador","composition":{"Green":6,"White":6,"Black":3,"Brown":2},"bonuses_en":"+4% HP, +4% Sp.Atk, +1% CDR, +1% Atk","bonuses_es":"+4% HP, +4% Atq.Esp., +1% CDR, +1% Atq","best_for_en":"Blissey, Eldegoss, Comfey","best_for_es":"Blissey, Eldegoss, Comfey"}
+  ]
+};
+
+// Pokémon data (30 Pokemon, abbreviated for inlining - this would normally be loaded from JSON)
+// Full data is loaded from data_pokemon.json via fetch below
+let POKEMON_DATA = [];
+
+/* ============================================================
+   INITIALIZATION
+   ============================================================ */
+
+async function init() {
+  try {
+    // Load pokemon data
+    const response = await fetch('data_pokemon.json');
+    POKEMON_DATA = await response.json();
+  } catch (err) {
+    console.error('Failed to load pokemon data:', err);
+    POKEMON_DATA = [];
+  }
+  setupLangSwitcher();
+  setupRoleFilter();
+  setupSearch();
+  renderPokemonList();
+}
+
+function setupLangSwitcher() {
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentLang = btn.dataset.lang;
+      updateI18n();
+      renderPokemonList();
+      if (currentPokemon) renderPokemonDetail(currentPokemon);
+    });
+  });
+}
+
+function updateI18n() {
+  document.querySelectorAll('[data-es]').forEach(el => {
+    el.textContent = el.dataset[currentLang];
+  });
+  document.querySelectorAll('[data-' + currentLang + '-ph]').forEach(el => {
+    el.placeholder = el.getAttribute('data-' + currentLang + '-ph');
+  });
+  const searchInput = document.getElementById('searchInput');
+  if (searchInput) searchInput.placeholder = currentLang === 'es' ? 'Buscar... (Pikachu)' : 'Search... (Pikachu)';
+  const sidebarTitle = document.getElementById('sidebarTitle');
+  if (sidebarTitle) sidebarTitle.textContent = currentLang === 'es' ? 'Pokémon' : 'Pokémon';
+  // Update role filter labels
+  document.querySelectorAll('.role-chip').forEach(chip => {
+    if (chip.dataset[currentLang]) chip.textContent = chip.dataset[currentLang];
+  });
+}
+
+function setupRoleFilter() {
+  document.querySelectorAll('.role-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.role-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      currentRoleFilter = chip.dataset.role;
+      renderPokemonList();
+    });
+  });
+}
+
+function setupSearch() {
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', (e) => {
+    searchQuery = e.target.value.toLowerCase();
+    renderPokemonList();
+  });
+}
+
+function renderPokemonList() {
+  const list = document.getElementById('pokemonList');
+  let filtered = POKEMON_DATA;
+  if (currentRoleFilter !== 'All') {
+    filtered = filtered.filter(p => p.role === currentRoleFilter);
+  }
+  if (searchQuery) {
+    filtered = filtered.filter(p =>
+      p.name_en.toLowerCase().includes(searchQuery) ||
+      (p.name_es && p.name_es.toLowerCase().includes(searchQuery))
+    );
+  }
+  list.innerHTML = filtered.map(p => {
+    const roleLabel = I18N[currentLang][p.role] || p.role;
+    return `
+      <div class="pokemon-tile ${currentPokemon && currentPokemon.id === p.id ? 'selected' : ''}" data-id="${p.id}">
+        <img src="${p.sprite_url}" alt="${p['name_' + currentLang]}" loading="lazy" onerror="this.style.opacity='0.3'">
+        <div class="pkmn-name">${p['name_' + currentLang]}</div>
+        <div class="pkmn-role">${roleLabel}</div>
+      </div>
+    `;
+  }).join('');
+  list.querySelectorAll('.pokemon-tile').forEach(tile => {
+    tile.addEventListener('click', () => {
+      const pkmn = POKEMON_DATA.find(p => p.id === tile.dataset.id);
+      if (pkmn) {
+        currentPokemon = pkmn;
+        renderPokemonList();
+        renderPokemonDetail(pkmn);
+      }
+    });
+  });
+}
+
+function renderPokemonDetail(p) {
+  const main = document.getElementById('mainContent');
+  const role = DATA.roles[p.role] || {};
+  const roleLabel = role[currentLang] || p.role;
+  const roleColor = role.color_primary || '#3b82f6';
+  const roleGradient = `linear-gradient(135deg, ${roleColor} 0%, ${shadeColor(roleColor, -30)} 100%)`;
+  const build = p.builds[0];
+  const t = I18N[currentLang];
+
+  // Held items details
+  const itemsHtml = build.held_items.map((id, idx) => {
+    const item = DATA.held_items.find(i => i.id === id);
+    if (!item) return '';
+    return `
+      <div class="item-slot">
+        <div class="slot-label"><span class="slot-num">${idx + 1}</span> ${t.slot} ${idx + 1}</div>
+        <div class="item-visual">
+          <img class="item-icon" src="${item.icon_url}" alt="${item['name_' + currentLang]}" onerror="this.style.opacity='0.3'">
+          <div>
+            <div class="item-name">${item['name_' + currentLang]}</div>
+          </div>
+        </div>
+        <div class="item-effect">${item['effect_' + currentLang]}</div>
+        <div class="item-synergy">${item['synergy_' + currentLang]}</div>
+      </div>
+    `;
+  }).join('');
+
+  // Battle item
+  const battle = DATA.battle_items.find(b => b.id === build.battle_item);
+  const battleAlt = build.battle_item_alt ? DATA.battle_items.find(b => b.id === build.battle_item_alt) : null;
+  const battleHtml = battle ? `
+    <div class="battle-card">
+      <img class="item-icon" src="${battle.icon_url}" alt="${battle['name_' + currentLang]}" onerror="this.style.opacity='0.3'">
+      <div style="flex:1">
+        <div class="slot-label">${t.primary}</div>
+        <div class="item-name">${battle['name_' + currentLang]}</div>
+        <div class="item-effect">${battle['effect_' + currentLang]}</div>
+        <div class="item-synergy">${battle['synergy_' + currentLang]}</div>
+      </div>
+    </div>
+  ` : '';
+  const battleAltHtml = battleAlt ? `
+    <div class="battle-card" style="opacity:0.85">
+      <img class="item-icon" src="${battleAlt.icon_url}" alt="${battleAlt['name_' + currentLang]}" onerror="this.style.opacity='0.3'">
+      <div style="flex:1">
+        <div class="slot-label">${t.alt_label}</div>
+        <div class="item-name">${battleAlt['name_' + currentLang]}</div>
+        <div class="item-effect">${battleAlt['effect_' + currentLang]}</div>
+        <div class="item-synergy">${battleAlt['synergy_' + currentLang]}</div>
+      </div>
+    </div>
+  ` : '';
+
+  // Moves
+  const movesHtml = build['moves_' + currentLang].map(m => `<div class="move-line"><div class="move-name">${m}</div></div>`).join('');
+  const uniteHtml = build['unite_move_' + currentLang] ? `<div class="move-line unite"><div class="move-label">${t.unite_move}</div><div class="move-name">${build['unite_move_' + currentLang]}</div></div>` : '';
+
+  // Emblems
+  const emblemColors = (build['emblem_colors_' + currentLang] || []).map(c => {
+    const colorData = EMBLEMS.colors[c] || {};
+    return `<span class="emblem-pill"><span class="dot" style="background:${colorData.hex || '#888'}"></span>${c}</span>`;
+  }).join('');
+  const emblemSetText = build['emblem_set_' + currentLang] || '';
+
+  // Tips
+  const tipsHtml = (build['tips_' + currentLang] || []).map(tip => `<li>${tip}</li>`).join('');
+
+  // Counters
+  const countersHtml = (build['counters_' + currentLang] || []).map(c => {
+    const cpkmn = guessPokemon(c);
+    return `<div class="matchup-pkmn">
+      ${cpkmn ? `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${cpkmn.dex_id}.png" alt="${cpkmn.name}" onerror="this.style.opacity='0.3'">` : ''}
+      <div>${c}</div>
+    </div>`;
+  }).join('');
+
+  // Beats
+  const beatsHtml = (build['beats_' + currentLang] || []).map(b => {
+    const bpkmn = guessPokemon(b);
+    return `<div class="matchup-pkmn">
+      ${bpkmn ? `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${bpkmn.dex_id}.png" alt="${bpkmn.name}" onerror="this.style.opacity='0.3'">` : ''}
+      <div>${b}</div>
+    </div>`;
+  }).join('');
+
+  // Style & type labels
+  const styleLabel = t[p.style] || p.style;
+  const typeLabel = t[p.attack_type] || p.attack_type;
+  const difficultyLabel = t[p.difficulty] || p.difficulty;
+
+  main.innerHTML = `
+    <div class="pkmn-header fade-in" style="--header-gradient: ${roleGradient}">
+      <img class="pkmn-sprite" src="${p.sprite_url}" alt="${p['name_' + currentLang]}" onerror="this.style.opacity='0.3'">
+      <div class="pkmn-info">
+        <div class="pkmn-name-big">${p['name_' + currentLang]}</div>
+        <div class="pkmn-tags">
+          <span class="tag role-${p.role}">${roleLabel}</span>
+          <span class="tag" style="background:rgba(0,0,0,0.4)">${styleLabel}</span>
+          <span class="tag" style="background:rgba(0,0,0,0.4)">${typeLabel}</span>
+          <span class="tag" style="background:rgba(0,0,0,0.4)">⭐ ${difficultyLabel}</span>
+        </div>
+        <div style="font-size:0.9rem; color: var(--text-secondary); margin-top:0.5rem">
+          🛣️ ${t.lane}: <strong style="color:var(--text-primary)">${build['lane_' + currentLang] || '-'}</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="section fade-in">
+      <h2><span class="icon items">⚔️</span> ${t.items}</h2>
+      <div class="items-grid">${itemsHtml}</div>
+    </div>
+
+    <div class="section fade-in">
+      <h2><span class="icon battle">🧪</span> ${t.battle}</h2>
+      <div class="battle-row">
+        ${battleHtml}
+        ${battleAltHtml}
+      </div>
+    </div>
+
+    <div class="section fade-in">
+      <h2><span class="icon moves">⚡</span> ${t.moves}</h2>
+      <div class="moves-block">
+        <div class="move-line"><div class="move-label">${t.early_moves}</div><div class="move-name">${build['moves_' + currentLang].join(' / ')}</div></div>
+        ${uniteHtml}
+      </div>
+    </div>
+
+    <div class="section fade-in">
+      <h2><span class="icon emblems">💎</span> ${t.emblems}</h2>
+      <div class="emblems-set">
+        <div style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:0.5rem">${t.chose}</div>
+        <div class="emblem-composition">${emblemColors}</div>
+        ${emblemSetText ? `<div class="emblem-bonuses"><strong>${build['name_' + currentLang]}:</strong> ${emblemSetText}</div>` : ''}
+        <div style="font-size:0.8rem; color:var(--text-muted); margin-top:0.5rem">${currentLang === 'es' ? 'Conjuntos probados de la comunidad (DipsanaRoy arsenal).' : 'Community-tested sets (DipsanaRoy arsenal).'}</div>
+      </div>
+    </div>
+
+    ${tipsHtml ? `
+    <div class="section fade-in">
+      <h2><span class="icon tips">💡</span> ${t.tips}</h2>
+      <ul class="tips-list">${tipsHtml}</ul>
+    </div>` : ''}
+
+    <div class="section fade-in">
+      <h2><span class="icon counters">⚠️</span> ${t.counters} & ${t.beats}</h2>
+      <div class="matchup-grid">
+        <div class="matchup-col counters">
+          <h3>⚠️ ${t.counters}</h3>
+          ${countersHtml}
+        </div>
+        <div class="matchup-col beats">
+          <h3>✓ ${t.beats}</h3>
+          ${beatsHtml}
+        </div>
+      </div>
+    </div>
+  `;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Helper: try to find a pokemon in our data from a free-text mention
+function guessPokemon(text) {
+  const lower = text.toLowerCase();
+  // Remove common stopwords/parens
+  const cleaned = lower.replace(/\(.*?\)/g, '').trim();
+  for (const p of POKEMON_DATA) {
+    if (cleaned.includes(p.name_en.toLowerCase())) return p;
+    if (p.name_es && cleaned.includes(p.name_es.toLowerCase())) return p;
+  }
+  return null;
+}
+
+function shadeColor(hex, percent) {
+  // Lighten/darken a hex color
+  let R = parseInt(hex.substring(1, 3), 16);
+  let G = parseInt(hex.substring(3, 5), 16);
+  let B = parseInt(hex.substring(5, 7), 16);
+  R = Math.max(0, Math.min(255, R + (R * percent / 100)));
+  G = Math.max(0, Math.min(255, G + (G * percent / 100)));
+  B = Math.max(0, Math.min(255, B + (B * percent / 100)));
+  const RR = Math.round(R).toString(16).padStart(2, '0');
+  const GG = Math.round(G).toString(16).padStart(2, '0');
+  const BB = Math.round(B).toString(16).padStart(2, '0');
+  return '#' + RR + GG + BB;
+}
+
+// Bootstrap
+init();
+</script>
+</body>
+</html>
