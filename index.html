@@ -146,12 +146,18 @@ body {
   max-width: 1600px;
   margin: 0 auto;
 }
-@media (max-width: 1200px) {
-  .layout { grid-template-columns: 1fr; }
+@media (max-width: 1400px) {
+  .layout { 
+    grid-template-columns: 1fr; 
+  }
   .sidebar {
     position: static;
     max-height: none;
     overflow-y: visible;
+  }
+  /* Make the pokemon grid more compact on mobile so it doesn't take forever to scroll past */
+  .pokemon-list {
+    grid-template-columns: repeat(5, 1fr);
   }
 }
 
