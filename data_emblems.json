@@ -1,0 +1,184 @@
+{
+  "version": "1.23.1.1",
+  "emblems": {
+    "system_explainer_en": "Emblems are color-coded items that grant stat bonuses. You can equip up to 15 emblems. Emblems of the same color stack to unlock set bonuses at certain thresholds (e.g. 2/4/6 for some colors, 3/5/7 for others). Each emblem also has its own individual stat (HP, Atk, Sp.Atk, etc) based on its tier (Bronze < Silver < Gold > Platinum; Platinum is the rarest, with both +HP and -HP stat options).",
+    "system_explainer_es": "Los emblemas son items codificados por color que dan bonuses de stats. Podes equipar hasta 15 emblemas. Emblemas del mismo color se apilan para desbloquear bonuses de set en ciertos umbrales (ej. 2/4/6 para algunos colores, 3/5/7 para otros). Cada emblema tiene su propio stat individual (HP, Atq, Atq.Esp, etc) segun su tier (Bronze < Silver < Gold > Platinum; Platinum es el mas raro, con opciones +HP y -HP).",
+    "colors": {
+      "White": {
+        "name_en": "White",
+        "name_es": "Blanco",
+        "stat_en": "HP",
+        "stat_es": "HP",
+        "hex": "#e5e7eb",
+        "thresholds": [[2, 1], [4, 2], [6, 4]],
+        "effect_unit_en": "% HP bonus",
+        "effect_unit_es": "% bonus de HP"
+      },
+      "Brown": {
+        "name_en": "Brown",
+        "name_es": "Marron",
+        "stat_en": "Attack",
+        "stat_es": "Ataque",
+        "hex": "#a16207",
+        "thresholds": [[2, 1], [4, 2], [6, 4]],
+        "effect_unit_en": "% Attack bonus",
+        "effect_unit_es": "% bonus de Ataque"
+      },
+      "Green": {
+        "name_en": "Green",
+        "name_es": "Verde",
+        "stat_en": "Sp. Atk",
+        "stat_es": "Atq. Esp.",
+        "hex": "#22c55e",
+        "thresholds": [[2, 1], [4, 2], [6, 4]],
+        "effect_unit_en": "% Sp. Atk bonus",
+        "effect_unit_es": "% bonus de Atq. Esp."
+      },
+      "Purple": {
+        "name_en": "Purple",
+        "name_es": "Morado",
+        "stat_en": "Sp. Def",
+        "stat_es": "Def. Esp.",
+        "hex": "#a855f7",
+        "thresholds": [[2, 2], [4, 4], [6, 8]],
+        "effect_unit_en": "% Sp. Def bonus",
+        "effect_unit_es": "% bonus de Def. Esp."
+      },
+      "Blue": {
+        "name_en": "Blue",
+        "name_es": "Azul",
+        "stat_en": "Defense",
+        "stat_es": "Defensa",
+        "hex": "#3b82f6",
+        "thresholds": [[2, 2], [4, 4], [6, 8]],
+        "effect_unit_en": "% Defense bonus",
+        "effect_unit_es": "% bonus de Defensa"
+      },
+      "Red": {
+        "name_en": "Red",
+        "name_es": "Rojo",
+        "stat_en": "Basic Attack Speed",
+        "stat_es": "Vel. Ataque Basico",
+        "hex": "#ef4444",
+        "thresholds": [[3, 2], [5, 4], [7, 8]],
+        "effect_unit_en": "% Basic Attack Speed bonus",
+        "effect_unit_es": "% bonus de Vel. de Ataque Basico"
+      },
+      "Black": {
+        "name_en": "Black",
+        "name_es": "Negro",
+        "stat_en": "Cooldown Reduction (CDR)",
+        "stat_es": "Reduccion de Enfriamiento (CDR)",
+        "hex": "#1f2937",
+        "thresholds": [[3, 1], [5, 2], [7, 4]],
+        "effect_unit_en": "% CDR",
+        "effect_unit_es": "% CDR"
+      },
+      "Yellow": {
+        "name_en": "Yellow",
+        "name_es": "Amarillo",
+        "stat_en": "Out-of-Combat Move Speed",
+        "stat_es": "Vel. Movimiento fuera de combate",
+        "hex": "#eab308",
+        "thresholds": [[3, 4], [5, 6], [7, 12]],
+        "effect_unit_en": "% Move Speed bonus (OOC)",
+        "effect_unit_es": "% bonus de Vel. de Movimiento (OOC)"
+      },
+      "Pink": {
+        "name_en": "Pink",
+        "name_es": "Rosa",
+        "stat_en": "Hindrance Resistance",
+        "stat_es": "Resistencia a Hindrance",
+        "hex": "#ec4899",
+        "thresholds": [[3, 4], [5, 8], [7, 16]],
+        "effect_unit_en": "% less hindrance duration",
+        "effect_unit_es": "% menos duracion de hindrance"
+      }
+    },
+    "icon_base_url_en": "Available in the FoxForge-GG emblem set. Each emblem is a specific Pokemon icon variant. The set has 762 individual emblem icons covering all 254 Pokemon x 3 color variants (A=primary, B=secondary, C=tertiary).",
+    "icon_base_url_es": "Disponible en el set de emblemas de FoxForge-GG. Cada emblema es una variante de icono de un Pokemon especifico. El set tiene 762 iconos individuales cubriendo los 254 Pokemon x 3 variantes de color (A=primario, B=secundario, C=terciario).",
+    "tested_sets": [
+      {
+        "name_en": "CDR Special Attacker",
+        "name_es": "CDR Atacante Especial",
+        "best_for_en": "Pikachu, Gengar, Cramorant, Sylveon",
+        "best_for_es": "Pikachu, Gengar, Cramorant, Sylveon",
+        "composition": {"Black": 7, "Green": 6, "White": 2},
+        "bonuses_en": "+4% CDR, +4% Sp.Atk, +1% HP",
+        "bonuses_es": "+4% CDR, +4% Atq.Esp., +1% HP"
+      },
+      {
+        "name_en": "Gardevoir/Espeon Style",
+        "name_es": "Estilo Gardevoir/Espeon",
+        "best_for_en": "Sylveon, Espeon, Mr. Mime",
+        "best_for_es": "Sylveon, Espeon, Mr. Mime",
+        "composition": {"Green": 6, "White": 6, "Black": 3, "Blue": 2, "Purple": 2},
+        "bonuses_en": "+4% HP, +4% Sp.Atk, +2% Def, +2% Sp.Def, +1% CDR",
+        "bonuses_es": "+4% HP, +4% Atq.Esp., +2% Def, +2% Def.Esp., +1% CDR"
+      },
+      {
+        "name_en": "Pursuit Absol Style",
+        "name_es": "Estilo Persecucion Absol",
+        "best_for_en": "Absol, Talonflame, Lucario",
+        "best_for_es": "Absol, Talonflame, Lucario",
+        "composition": {"White": 6, "Brown": 6, "Blue": 2},
+        "bonuses_en": "+4% Atk, +4% HP, +2% Def",
+        "bonuses_es": "+4% Atq, +4% HP, +2% Def"
+      },
+      {
+        "name_en": "Talonflame Fly Non-Stop",
+        "name_es": "Talonflame Vuelo Sin Parar",
+        "best_for_en": "Talonflame, Zeraora, Gengar",
+        "best_for_es": "Talonflame, Zeraora, Gengar",
+        "composition": {"Black": 7, "Brown": 4, "Blue": 2, "Purple": 2},
+        "bonuses_en": "+2% Atk, +4% Def, +2% Sp.Def, +4% CDR",
+        "bonuses_es": "+2% Atq, +4% Def, +2% Def.Esp., +4% CDR"
+      },
+      {
+        "name_en": "Decidueye Full Burst",
+        "name_es": "Decidueye Rafaga Total",
+        "best_for_en": "Decidueye, Cinderace, Duraludon",
+        "best_for_es": "Decidueye, Cinderace, Duraludon",
+        "composition": {"Brown": 6, "Red": 3, "Blue": 2, "White": 2},
+        "bonuses_en": "+4% Atk, +2% Atk Speed, +2% Def, +1% HP",
+        "bonuses_es": "+4% Atq, +2% Vel.Ataque, +2% Def, +1% HP"
+      },
+      {
+        "name_en": "Comfey/Blissey Support",
+        "name_es": "Soporte Comfey/Blissey",
+        "best_for_en": "Blissey, Eldegoss, Comfey, Blastoise",
+        "best_for_es": "Blissey, Eldegoss, Comfey, Blastoise",
+        "composition": {"Green": 6, "White": 6, "Black": 3, "Brown": 2},
+        "bonuses_en": "+4% HP, +4% Sp.Atk, +1% CDR, +1% Atk",
+        "bonuses_es": "+4% HP, +4% Atq.Esp., +1% CDR, +1% Atq"
+      },
+      {
+        "name_en": "Defender Tank",
+        "name_es": "Tanque Defensor",
+        "best_for_en": "Snorlax, Sableye, Trevenant, Mamoswine",
+        "best_for_es": "Snorlax, Sableye, Trevenant, Mamoswine",
+        "composition": {"White": 6, "Blue": 2, "Purple": 2, "Brown": 2},
+        "bonuses_en": "+4% HP, +2% Def, +2% Sp.Def, +1% Atk",
+        "bonuses_es": "+4% HP, +2% Def, +2% Def.Esp., +1% Atq"
+      },
+      {
+        "name_en": "Eldegoss Attack Speed Support",
+        "name_es": "Soporte Velocidad Eldegoss",
+        "best_for_en": "Eldegoss, Mr. Mime",
+        "best_for_es": "Eldegoss, Mr. Mime",
+        "composition": {"Red": 7, "White": 4, "Green": 2},
+        "bonuses_en": "+8% Atk Speed, +2% HP, +1% Sp.Atk",
+        "bonuses_es": "+8% Vel.Ataque, +2% HP, +1% Atq.Esp."
+      },
+      {
+        "name_en": "Anti-Stun (Tsareena style)",
+        "name_es": "Anti-Stun (estilo Tsareena)",
+        "best_for_en": "Tsareena, Buzzwole, Dragonite",
+        "best_for_es": "Tsareena, Buzzwole, Dragonite",
+        "composition": {"Brown": 6, "White": 4, "Pink": 3, "Blue": 2},
+        "bonuses_en": "+4% Atk, +2% HP, +4% Anti-stun, +2% Def",
+        "bonuses_es": "+4% Atq, +2% HP, +4% Anti-stun, +2% Def"
+      }
+    ]
+  }
+}

@@ -1,0 +1,1339 @@
+{
+  "version": "1.23.1.1",
+  "pokemon": [
+    {
+      "id": "pikachu",
+      "name_en": "Pikachu",
+      "name_es": "Pikachu",
+      "dex_id": 25,
+      "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
+      "role": "Attacker",
+      "style": "Ranged",
+      "attack_type": "special",
+      "difficulty": "Beginner",
+      "builds": [
+        {
+          "name_en": "Full Thunder",
+          "name_es": "Trueno Total",
+          "lane_en": "Bot lane",
+          "lane_es": "Linea inferior",
+          "moves_en": ["Thunder Shock / Thunder", "Electro Ball / Thunderbolt"],
+          "moves_es": ["Impactrueno / Trueno", "Bola Electrico / Rayo"],
+          "unite_move_en": "Thunderstorm",
+          "unite_move_es": "Tormenta Electrica",
+          "held_items": ["energyamplifier", "curseincense", "drivelens"],
+          "held_item_alt_en": "Choice Specs",
+          "held_item_alt_es": "Lentes de Eleccion",
+          "battle_item": "ejectbutton",
+          "battle_item_alt": "xattack",
+          "emblem_colors_en": ["Black", "Green"],
+          "emblem_colors_es": ["Negro", "Verde"],
+          "emblem_set_en": "7 Black + 6 Green + 2 White",
+          "emblem_set_es": "7 Negro + 6 Verde + 2 Blanco",
+          "tips_en": [
+            "Stay in backline, use range to poke",
+            "Thunder Unite Move chains with Energy Amplifier for huge burst",
+            "Use Eject Button to reposition out of dives"
+          ],
+          "tips_es": [
+            "Quedate en backline, usa el rango para hostigar",
+            "El movimiento Unite Trueno encadena con Amplificador para burst enorme",
+            "Usa Boton Eyectar para reposicionarte de los dives"
+          ],
+          "counters_en": ["Mr. Mime (barriers block skills)", "Snorlax (tanks damage)", "Buzzwole (lifesteal + dive)"],
+          "counters_es": ["Mr. Mime (barreras bloquean habilidades)", "Snorlax (absorbe danio)", "Buzzwole (robo de vida + dive)"],
+          "beats_en": ["Gengar", "Cramorant", "Zeraora (poke down)"],
+          "beats_es": ["Gengar", "Cramorant", "Zeraora (hostiga hasta matarlo)"]
+        }
+      ]
+    },
+    {
+      "id": "charizard",
+      "name_en": "Charizard",
+      "name_es": "Charizard",
+      "dex_id": 6,
+      "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
+      "role": "All-Rounder",
+      "style": "Melee",
+      "attack_type": "physical",
+      "difficulty": "Intermediate",
+      "builds": [
+        {
+          "name_en": "Flame Blitz Carry",
+          "name_es": "Llamarada Veloz",
+          "lane_en": "Bot or Top",
+          "lane_es": "Inferior o Superior",
+          "moves_en": ["Flamethrower / Flare Blitz", "Fire Punch / Fire Blast"],
+          "moves_es": ["Lanzallamas / Envite Igneo", "Puño Fuego / Llamarada"],
+          "unite_move_en": "Seismic Slam",
+          "unite_move_es": "Golpe Sismico",
+          "held_items": ["attackweight", "razorclaw", "weaknesspolicy"],
+          "held_item_alt_en": "Muscle Band",
+          "held_item_alt_es": "Banda Musculosa",
+          "battle_item": "ejectbutton",
+          "battle_item_alt": "fullheal",
+          "emblem_colors_en": ["Brown", "Black"],
+          "emblem_colors_es": ["Marron", "Negro"],
+          "emblem_set_en": "6 Brown + 6 Black + 3 Red",
+          "emblem_set_es": "6 Marron + 6 Negro + 3 Rojo",
+          "tips_en": [
+            "Farm Aipom/Corphish for Attack Weight stacks before scoring",
+            "Power-up at lv 7/9 (Mega Evolution)",
+            "Flare Blitz resets on KO - chain into enemy team"
+          ],
+          "tips_es": [
+            "Farmea Aipom/Corphish para acumular Peso de Ataque antes de anotar",
+            "Power-up en lv 7/9 (Mega Evolucion)",
+            "Envite Igneo se reinicia al eliminar - encadena en el equipo enemigo"
+          ],
+          "counters_en": ["Blastoise (outranges)", "Mr. Mime (barriers)", "Crustle (Rock Tomb CC)"],
+          "counters_es": ["Blastoise (mayor rango)", "Mr. Mime (barreras)", "Crustle (Tumba Rocas CC)"],
+          "beats_en": ["Talonflame", "Zeraora (brawl)", "Absol"],
+          "beats_es": ["Talonflame", "Zeraora (cuerpo a cuerpo)", "Absol"]
+        }
+      ]
+    },
+    {
+      "id": "blastoise",
+      "name_en": "Blastoise",
+      "name_es": "Blastoise",
+      "dex_id": 9,
+      "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png",
+      "role": "Defender",
+      "style": "Ranged",
+      "attack_type": "special",
+      "difficulty": "Intermediate",
+      "builds": [
+        {
+          "name_en": "Surf Tank",
+          "name_es": "Tanque Surf",
+          "lane_en": "Top",
+          "lane_es": "Superior",
+          "moves_en": ["Water Gun / Surf", "Hydro Pump / Skull Bash"],
+          "moves_es": ["Pistola Agua / Surf", "Hidrobomba / Cabezazo"],
+          "unite_move_en": "Hydro Typhoon",
+          "unite_move_es": "Tifon Hidraulico",
+          "held_items": ["buddybarrier", "assaultvest", "leftovers"],
+          "held_item_alt_en": "Focus Band",
+          "held_item_alt_es": "Banda Focus",
+          "battle_item": "ejectbutton",
+          "battle_item_alt": "slowsmoke",
+          "emblem_colors_en": ["White", "Blue", "Purple"],
+          "emblem_colors_es": ["Blanco", "Azul", "Morado"],
+          "emblem_set_en": "6 White + 6 Blue + 3 Purple",
+          "emblem_set_es": "6 Blanco + 6 Azul + 3 Morado",
+          "tips_en": [
+            "You outrange most melees - abuse it",
+            "Surf + Hydro Pump combo deletes Attackers",
+            "Buddy Barrier on Unite Move gives you and ally huge shields"
+          ],
+          "tips_es": [
+            "Tenes mas rango que la mayoria de melees - abusalo",
+            "La combo Surf + Hidrobomba borra Atacantes",
+            "Barrera de Companero en Unite te da escudos enormes a vos y aliado"
+          ],
+          "counters_en": ["Zeraora (mobile)", "Talonflame (mobile dive)", "Gengar (ambush)"],
+          "counters_es": ["Zeraora (movil)", "Talonflame (dive movil)", "Gengar (emboscada)"],
+          "beats_en": ["Cinderace", "Pikachu (close range)", "Charizard"],
+          "beats_es": ["Cinderace", "Pikachu (cerca)", "Charizard"]
+        }
+      ]
+    },
+    {
+      "id": "venusaur",
+      "name_en": "Venusaur",
+      "name_es": "Venusaur",
+      "dex_id": 3,
+      "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png",
+      "role": "Attacker",
+      "style": "Ranged",
+      "attack_type": "special",
+      "difficulty": "Intermediate",
+      "builds": [
+        {
+          "name_en": "Sludge Beam",
+          "name_es": "Rayo Lodo",
+          "lane_en": "Bot",
+          "lane_es": "Inferior",
+          "moves_en": ["Vine Whip / Sludge Bomb", "Razor Leaf / Solar Beam"],
+          "moves_es": ["Latigo Cepa / Bomba Lodo", "Hoja Afilada / Rayo Solar"],
+          "unite_move_en": "Verdant Anger",
+          "unite_move_es": "Ira Verde",
+          "held_items": ["energyamplifier", "spatkspecs", "choicespecs"],
+          "held_item_alt_en": "Slick Spoon",
+          "held_item_alt_es": "Cuchara Resbaladiza",
+          "battle_item": "ejectbutton",
+          "battle_item_alt": "xattack",
+          "emblem_colors_en": ["Green", "Black"],
+          "emblem_colors_es": ["Verde", "Negro"],
+          "emblem_set_en": "7 Green + 6 Black + 2 White",
+          "emblem_set_es": "7 Verde + 6 Negro + 2 Blanco",
+          "tips_en": [
+            "Razor Leaf shreds tanks; Sludge Bomb has more burst",
+            "Verdant Anger is a zoning tool, not an execute",
+            "Slick Spoon vs. Assault Vest users"
+          ],
+          "tips_es": [
+            "Hoja Afilada destroza tanques; Bomba Lodo tiene mas burst",
+            "Ira Verde es control de zona, no ejecucion",
+            "Cuchara Resbaladiza vs. usuarios de Chaleco de Asalto"
+          ],
+          "counters_en": ["Buzzwole (lifesteal)", "Mamoswine (tank)", "Dragonite (mobile)"],
+          "counters_es": ["Buzzwole (robo de vida)", "Mamoswine (tanque)", "Dragonite (movil)"],
+          "beats_en": ["Snorlax", "Slowbro", "Crustle"],
+          "beats_es": ["Snorlax", "Slowbro", "Crustle"]
+        }
+      ]
+    },
+    {
+      "id": "greninja",
+      "name_en": "Greninja",
+      "name_es": "Greninja",
+      "dex_id": 658,
+      "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/658.png",
+      "role": "Attacker",
+      "style": "Ranged",
+      "attack_type": "physical",
+      "difficulty": "Expert",
+      "builds": [
+        {
+          "name_en": "Smokescreen Carry",
+          "name_es": "Portador de Humo",
+          "lane_en": "Bot",
+          "lane_es": "Inferior",
+          "moves_en": ["Water Shuriken / Surf", "Smokescreen / Double Team"],
+          "moves_es": ["Shuriken de Agua / Surf", "Pantalla de Humo / Doble Equipo"],
+          "unite_move_en": "Waterburst Shuriken",
+          "unite_move_es": "Shuriken de Agua Burst",
+          "held_items": ["muscleband", "rapidfirescarf", "razorclaw"],
+          "held_item_alt_en": "Attack Weight",
+          "held_item_alt_es": "Peso de Ataque",
+          "battle_item": "ejectbutton",
+          "battle_item_alt": "xspeed",
+          "emblem_colors_en": ["Brown", "Red"],
+          "emblem_colors_es": ["Marron", "Rojo"],
+          "emblem_set_en": "6 Brown + 7 Red + 2 Black",
+          "emblem_set_es": "6 Marron + 7 Rojo + 2 Negro",
+          "tips_en": [
+            "Water Shuriken boosted attacks are your main damage",
+            "Smokescreen is an escape - use for survival, not initiation",
+            "Surf for mobility and engage"
+          ],
+          "tips_es": [
+            "Los ataques potenciados de Shuriken de Agua son tu danio principal",
+            "Pantalla de Humo es escape - usalo para sobrevivir, no iniciar",
+            "Surf para movilidad y engage"
+          ],
+          "counters_en": ["Crustle (CC)", "Snorlax (tank)", "Wigglytuff (sleep)"],
+          "counters_es": ["Crustle (CC)", "Snorlax (tanque)", "Wigglytuff (suenno)"],
+          "beats_en": ["Pikachu (outrange with autos)", "Gengar", "Mr. Mime"],
+          "beats_es": ["Pikachu (mas rango con autos)", "Gengar", "Mr. Mime"]
+        }
+      ]
+    },
+    {
+      "id": "cinderace",
+      "name_en": "Cinderace",
+      "name_es": "Cinderace",
+      "dex_id": 815,
+      "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/815.png",
+      "role": "Attacker",
+      "style": "Ranged",
+      "attack_type": "physical",
+      "difficulty": "Intermediate",
+      "builds": [
+        {
+          "name_en": "Feint Blaze",
+          "name_es": "Ardida Finta",
+          "lane_en": "Bot",
+          "lane_es": "Inferior",
+          "moves_en": ["Ember / Blaze Kick", "Feint / Pyro Ball"],
+          "moves_es": ["Brasa / Patada Ignea", "Finta / Bola de Fuego"],
+          "unite_move_en": "Blazing Bicycle Kick",
+          "unite_move_es": "Patada Ciclon Ignea",
+          "held_items": ["muscleband", "attackweight", "razorclaw"],
+          "held_item_alt_en": "Scope Lens",
+          "held_item_alt_es": "Lente de Aumento",
+          "battle_item": "ejectbutton",
+          "battle_item_alt": "xspeed",
+          "emblem_colors_en": ["Brown", "Red"],
+          "emblem_colors_es": ["Marron", "Rojo"],
+          "emblem_set_en": "6 Brown + 7 Red + 2 Black",
+          "emblem_set_es": "6 Marron + 7 Rojo + 2 Negro",
+          "tips_en": [
+            "Blaze Kick is your main damage and reposition",
+            "Feint dodges abilities - use to bait enemy skills",
+            "Unite Move chains into whole teams if aimed right"
+          ],
+          "tips_es": [
+            "Patada Ignea es tu danio principal y reposicionamiento",
+            "Finta esquiva habilidades - usala para baitear skills enemigas",
+            "El Unite encadena en equipos enteros si apuntas bien"
+          ],
+          "counters_en": ["Snorlax (tank)", "Mamoswine", "Mr. Mime (barrier)"],
+          "counters_es": ["Snorlax (tanque)", "Mamoswine", "Mr. Mime (barrera)"],
+          "beats_en": ["Pikachu", "Cramorant", "other squishies"],
+          "beats_es": ["Pikachu", "Cramorant", "otros fragiles"]
+        }
+      ]
+    },
+    {
+      "id": "mrmime",
+      "name_en": "Mr. Mime",
+      "name_es": "Mr. Mime",
+      "dex_id": 122,
+      "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/122.png",
+      "role": "Supporter",
+      "style": "Ranged",
+      "attack_type": "special",
+      "difficulty": "Expert",
+      "builds": [
+        {
+          "name_en": "Barrier Wall",
+          "name_es": "Muro de Barrera",
+          "lane_en": "Bot with carry",
+          "lane_es": "Inferior con carry",
+          "moves_en": ["Confusion / Psychic", "Barrier / Guard Swap"],
+          "moves_es": ["Confusion / Psiquico", "Barrera / Intercambio Guardia"],
+          "unite_move_en": "Showtime",
+          "unite_move_es": "Showtime",
+          "held_items": ["expshare", "scoreshield", "amuletcoin"],
+          "held_item_alt_en": "Wise Glasses",
+          "held_item_alt_es": "Gafas Sabias",
+          "battle_item": "ejectbutton",
+          "battle_item_alt": "fullheal",
+          "emblem_colors_en": ["Green", "White"],
+          "emblem_colors_es": ["Verde", "Blanco"],
+          "emblem_set_en": "6 Green + 6 White + 3 Black",
+          "emblem_set_es": "6 Verde + 6 Blanco + 3 Negro",
+          "tips_en": [
+            "Barrier blocks enemy dashes and skills - use to peel for carries",
+            "Guard Swap gives invuln to ally - use before they die",
+            "You are a SUPPORT - score rarely, peel always"
+          ],
+          "tips_es": [
+            "Barrera bloquea dashes y skills - usala para peelear carries",
+            "Intercambio Guardia da invuln a aliado - usalo antes que muera",
+            "Sos SOPORTE - anota poco, pelea mucho"
+          ],
+          "counters_en": ["Talonflame (mobile)", "Zeraora", "Absol (jump-ins)"],
+          "counters_es": ["Talonflame (movil)", "Zeraora", "Absol (saltos)"],
+          "beats_en": ["Cinderace", "Pikachu", "Cramorant (zone control)"],
+          "beats_es": ["Cinderace", "Pikachu", "Cramorant (control de zona)"]
+        }
+      ]
+    },
+    {
+      "id": "cramorant",
+      "name_en": "Cramorant",
+      "name_es": "Cramorant",
+      "dex_id": 845,
+      "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/845.png",
+      "role": "Attacker",
+      "style": "Ranged",
+      "attack_type": "special",
+      "difficulty": "Intermediate",
+      "builds": [
+        {
+          "name_en": "Dive Slash",
+          "name_es": "Zambullida",
+          "lane_en": "Bot",
+          "lane_es": "Inferior",
+          "moves_en": ["Peck / Drill Peck", "Air Slash / Dive"],
+          "moves_es": ["Picotazo / Taladro", "Golpe Aereo / Zambullida"],
+          "unite_move_en": "Gatling Gulp Missile",
+          "unite_move_es": "Misil Gulp Ametralladora",
+          "held_items": ["energyamplifier", "spatkspecs", "shellbell"],
+          "held_item_alt_en": "Slick Spoon",
+          "held_item_alt_es": "Cuchara Resbaladiza",
+          "battle_item": "ejectbutton",
+          "battle_item_alt": "fullheal",
+          "emblem_colors_en": ["Green", "Black"],
+          "emblem_colors_es": ["Verde", "Negro"],
+          "emblem_set_en": "7 Green + 6 Black + 2 White",
+          "emblem_set_es": "7 Verde + 6 Negro + 2 Blanco",
+          "tips_en": [
+            "Dive is a long-range engage - aim at backline",
+            "Gatling Gulp Missile's slow is huge for picks",
+            "Stay mid-back, not frontline"
+          ],
+          "tips_es": [
+            "Zambullida es engage de largo rango - apunto a la backline",
+            "El slow de Misil Gulp es enorme para picks",
+            "Quedate medio-atras, no en frente"
+          ],
+          "counters_en": ["Snorlax (tank)", "Buzzwole (lifesteal)", "Crustle (CC)"],
+          "counters_es": ["Snorlax (tanque)", "Buzzwole (robo de vida)", "Crustle (CC)"],
+          "beats_en": ["Zeraora", "Gengar", "Cinderace"],
+          "beats_es": ["Zeraora", "Gengar", "Cinderace"]
+        }
+      ]
+    },
+    {
+      "id": "snorlax",
+      "name_en": "Snorlax",
+      "name_es": "Snorlax",
+      "dex_id": 143,
+      "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/143.png",
+      "role": "Defender",
+      "style": "Melee",
+      "attack_type": "physical",
+      "difficulty": "Beginner",
+      "builds": [
+        {
+          "name_en": "Heavy Slam",
+          "name_es": "Golpe Pesado",
+          "lane_en": "Top",
+          "lane_es": "Superior",
+          "moves_en": ["Tackle / Heavy Slam", "Yawn / Block"],
+          "moves_es": ["Placaje / Golpe Pesado", "Bostezo / Bloqueo"],
+          "unite_move_en": "Unite! Heavy Slam",
+          "unite_move_es": "Unite! Golpe Pesado",
+          "held_items": ["focusband", "rockyhelmet", "leftovers"],
+          "held_item_alt_en": "Buddy Barrier",
+          "held_item_alt_es": "Barrera de Companero",
+          "battle_item": "ejectbutton",
+          "battle_item_alt": "slowsmoke",
+          "emblem_colors_en": ["White", "Blue", "Purple"],
+          "emblem_colors_es": ["Blanco", "Azul", "Morado"],
+          "emblem_set_en": "6 White + 2 Blue + 2 Purple + 2 Brown",
+          "emblem_set_es": "6 Blanco + 2 Azul + 2 Morado + 2 Marron",
+          "tips_en": [
+            "You are the wall - position between enemy and your carries",
+            "Yawn is a team-fight setup, not a 1v1 tool",
+            "Block gives 2 allies 100% HP shields - huge plays"
+          ],
+          "tips_es": [
+            "Sos el muro - posicional entre enemigo y tus carries",
+            "Bostezo es setup de team fight, no herramienta 1v1",
+            "Bloqueo da escudos del 100% HP a 2 aliados - jugadas enormes"
+          ],
+          "counters_en": ["Cramorant (outrange)", "Pikachu (outrange)", "Venusaur"],
+          "counters_es": ["Cramorant (mayor rango)", "Pikachu (mayor rango)", "Venusaur"],
+          "beats_en": ["Zeraora", "Talonflame", "Lucario (brawl)"],
+          "beats_es": ["Zeraora", "Talonflame", "Lucario (cuerpo a cuerpo)"]
+        }
+      ]
+    },
+    {
+      "id": "lucario",
+      "name_en": "Lucario",
+      "name_es": "Lucario",
+      "dex_id": 448,
+      "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/448.png",
+      "role": "All-Rounder",
+      "style": "Melee",
+      "attack_type": "physical",
+      "difficulty": "Expert",
+      "builds": [
+        {
+          "name_en": "Power-Up Rush",
+          "name_es": "Embestida Crecida",
+          "lane_en": "Jungle",
+          "lane_es": "Jungla",
+          "moves_en": ["Metal Claw / Power-Up Punch", "Bone Rush / Extreme Speed"],
+          "moves_es": ["Garra Metal / Puño Potenciado", "Carronada / Velocidad Extrema"],
+          "unite_move_en": "Aura Cannon",
+          "unite_move_es": "Canon de Aura",
+          "held_items": ["attackweight", "weaknesspolicy", "razorclaw"],
+          "held_item_alt_en": "Muscle Band",
+          "held_item_alt_es": "Banda Musculosa",
+          "battle_item": "ejectbutton",
+          "battle_item_alt": "fullheal",
+          "emblem_colors_en": ["Brown", "Black"],
+          "emblem_colors_es": ["Marron", "Negro"],
+          "emblem_set_en": "6 Brown + 6 Black + 3 White",
+          "emblem_set_es": "6 Marron + 6 Negro + 3 Blanco",
+          "tips_en": [
+            "Stack Attack Weight by farming jungle, then score ASAP",
+            "Power-Up Punch gets stronger the longer you fight",
+            "Extreme Speed gives you mobility and a true single-target execute"
+          ],
+          "tips_es": [
+            "Acumula Peso de Ataque farmeando jungla, despues anota ASAP",
+            "Puño Potenciado es mas fuerte mientras mas peleas",
+            "Velocidad Extrema te da movilidad y un execute single-target"
+          ],
+          "counters_en": ["Mr. Mime (barrier)", "Sableye (steal+CC)", "Wigglytuff (sleep)"],
+          "counters_es": ["Mr. Mime (barrera)", "Sableye (robo+CC)", "Wigglytuff (suenno)"],
+          "beats_en": ["Pikachu (close range)", "Cinderace", "Talonflame"],
+          "beats_es": ["Pikachu (cerca)", "Cinderace", "Talonflame"]
+        }
+      ]
+    },
+    {
+      "id": "gengar",
+      "name_en": "Gengar",
+      "name_es": "Gengar",
+      "dex_id": 94,
+      "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/94.png",
+      "role": "Speedster",
+      "style": "Ranged",
+      "attack_type": "special",
+      "difficulty": "Expert",
+      "builds": [
+        {
+          "name_en": "Shadow Eater",
+          "name_es": "Devorador de Sombras",
+          "lane_en": "Jungle",
+          "lane_es": "Jungla",
+          "moves_en": ["Lick / Dream Eater", "Shadow Ball / Sludge Bomb"],
+          "moves_es": ["Lenguetazo / Come Suenos", "Bola Sombra / Bomba Lodo"],
+          "unite_move_en": "Hex Genocide",
+          "unite_move_es": "Genocidio Hex",
+          "held_items": ["wiseglasses", "choicespecs", "energyamplifier"],
+          "held_item_alt_en": "Sp. Atk Specs",
+          "held_item_alt_es": "Lentes de Atq. Esp.",
+          "battle_item": "xspeed",
+          "battle_item_alt": "ejectbutton",
+          "emblem_colors_en": ["Green", "Black"],
+          "emblem_colors_es": ["Verde", "Negro"],
+          "emblem_set_en": "7 Green + 6 Black + 2 Purple",
+          "emblem_set_es": "7 Verde + 6 Negro + 2 Morado",
+          "tips_en": [
+            "Wait for enemy to overextend, then gank",
+            "Shadow Ball + Dream Eater combo deletes squishies",
+            "You are squishy - one-shot or die"
+          ],
+          "tips_es": [
+            "Espera a que el enemigo se extienda, despues gankeas",
+            "Bola Sombra + Come Suenos borra fragiles",
+            "Sos fragil - one-shot o mori"
+          ],
+          "counters_en": ["Sableye (counters jungle)", "Snorlax (tank)", "Mr. Mime (peel)"],
+          "counters_es": ["Sableye (counter jungla)", "Snorlax (tanque)", "Mr. Mime (peel)"],
+          "beats_en": ["Pikachu", "Cinderace", "Cramorant"],
+          "beats_es": ["Pikachu", "Cinderace", "Cramorant"]
+        }
+      ]
+    },
+    {
+      "id": "absol",
+      "name_en": "Absol",
+      "name_es": "Absol",
+      "dex_id": 359,
+      "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/359.png",
+      "role": "Speedster",
+      "style": "Melee",
+      "attack_type": "physical",
+      "difficulty": "Expert",
+      "builds": [
+        {
+          "name_en": "Punch Pursuit",
+          "name_es": "Persecucion Punetazo",
+          "lane_en": "Jungle",
+          "lane_es": "Jungla",
+          "moves_en": ["Scratch / Sucker Punch", "Pursuit / Razor Wind"],
+          "moves_es": ["Aranazo / Golpe Bajo", "Persecucion / Viento Agudo"],
+          "unite_move_en": "Midnight Slash",
+          "unite_move_es": "Tajo de Medianoche",
+          "held_items": ["scopelens", "razorclaw", "attackweight"],
+          "held_item_alt_en": "Float Stone",
+          "held_item_alt_es": "Piedra Flotante",
+          "battle_item": "xspeed",
+          "battle_item_alt": "fullheal",
+          "emblem_colors_en": ["Brown", "White"],
+          "emblem_colors_es": ["Marron", "Blanco"],
+          "emblem_set_en": "6 Brown + 6 White + 2 Blue",
+          "emblem_set_es": "6 Marron + 6 Blanco + 2 Azul",
+          "tips_en": [
+            "Crit-stacking build - hit crits hard",
+            "Midnight Slash is a team-wipe tool, aim for groups",
+            "Sucker Punch is a hard engage - pair with Speedster allies"
+          ],
+          "tips_es": [
+            "Build de crit-stack - tus criticos pegan duro",
+            "Tajo Medianoche es herramienta de team-wipe, apunto a grupos",
+            "Golpe Bajo es engage fuerte - combinalo con aliados velocistas"
+          ],
+          "counters_en": ["Mr. Mime (barrier)", "Sableye (peel)", "Wigglytuff (sleep)"],
+          "counters_es": ["Mr. Mime (barrera)", "Sableye (peel)", "Wigglytuff (suenno)"],
+          "beats_en": ["Pikachu", "Cinderace", "Cramorant"],
+          "beats_es": ["Pikachu", "Cinderace", "Cramorant"]
+        }
+      ]
+    },
+    {
+      "id": "talonflame",
+      "name_en": "Talonflame",
+      "name_es": "Talonflame",
+      "dex_id": 663,
+      "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/663.png",
+      "role": "Speedster",
+      "style": "Melee",
+      "attack_type": "physical",
+      "difficulty": "Intermediate",
+      "builds": [
+        {
+          "name_en": "Fly Non-Stop",
+          "name_es": "Vuelo Sin Parar",
+          "lane_en": "Jungle",
+          "lane_es": "Jungla",
+          "moves_en": ["Peck / Aerial Ace", "Flame Charge / Brave Bird"],
+          "moves_es": ["Picotazo / Golpe Aereo", "Carga de Fuego / Pajaro Bravo"],
+          "unite_move_en": "Sky Attack",
+          "unite_move_es": "Ataque Aereo",
+          "held_items": ["floatstone", "scopelens", "attackweight"],
+          "held_item_alt_en": "Razor Claw",
+          "held_item_alt_es": "Garra Afilada",
+          "battle_item": "xspeed",
+          "battle_item_alt": "ejectbutton",
+          "emblem_colors_en": ["Brown", "Black"],
+          "emblem_colors_es": ["Marron", "Negro"],
+          "emblem_set_en": "7 Black + 4 Brown + 2 Blue + 2 Purple",
+          "emblem_set_es": "7 Negro + 4 Marron + 2 Azul + 2 Morado",
+          "tips_en": [
+            "Stay in the air - your mobility is your identity",
+            "Brave Bird is an execute - aim at low-HP targets",
+            "Don't dive 1v5 - you are not a tank"
+          ],
+          "tips_es": [
+            "Quedate en el aire - tu movilidad es tu identidad",
+            "Pajaro Bravo es execute - apunto a bajo HP",
+            "No divees 1v5 - no sos tanque"
+          ],
+          "counters_en": ["Crustle (CC)", "Mr. Mime (barrier)", "Crustle + Mr. Mime (double CC)"],
+          "counters_es": ["Crustle (CC)", "Mr. Mime (barrera)", "Crustle + Mr. Mime (doble CC)"],
+          "beats_en": ["Pikachu", "Cinderace", "Gengar (out of position)"],
+          "beats_es": ["Pikachu", "Cinderace", "Gengar (fuera de posicion)"]
+        }
+      ]
+    },
+    {
+      "id": "zeraora",
+      "name_en": "Zeraora",
+      "name_es": "Zeraora",
+      "dex_id": 807,
+      "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/807.png",
+      "role": "Speedster",
+      "style": "Melee",
+      "attack_type": "physical",
+      "difficulty": "Expert",
+      "builds": [
+        {
+          "name_en": "Spark Wild",
+          "name_es": "Chispa Salvaje",
+          "lane_en": "Jungle",
+          "lane_es": "Jungla",
+          "moves_en": ["Quick Attack / Spark", "Volt Switch / Wild Charge"],
+          "moves_es": ["Ataque Rapido / Chispa", "Cambia Voltio / Carga Salvaje"],
+          "unite_move_en": "Plasma Gale",
+          "unite_move_es": "Vendaval Plasma",
+          "held_items": ["scopelens", "razorclaw", "floatstone"],
+          "held_item_alt_en": "Attack Weight",
+          "held_item_alt_es": "Peso de Ataque",
+          "battle_item": "xspeed",
+          "battle_item_alt": "ejectbutton",
+          "emblem_colors_en": ["Brown", "Red"],
+          "emblem_colors_es": ["Marron", "Rojo"],
+          "emblem_set_en": "6 Brown + 7 Red + 2 Black",
+          "emblem_set_es": "6 Marron + 7 Rojo + 2 Negro",
+          "tips_en": [
+            "You are the king of objective snipes - steal Zapdos/Drednaw",
+            "Spark is your main engage and escape",
+            "Plasma Gale chains into allies' CC for clean wipes"
+          ],
+          "tips_es": [
+            "Sos el rey de los snipes de objetivo - roba Zapdos/Drednaw",
+            "Chispa es tu engage y escape principal",
+            "Vendaval Plasma encadena con CC aliado para wipes limpios"
+          ],
+          "counters_en": ["Crustle (CC)", "Mr. Mime (barrier)", "Sableye (steal jungle)"],
+          "counters_es": ["Crustle (CC)", "Mr. Mime (barrera)", "Sableye (roba jungla)"],
+          "beats_en": ["Cinderace", "Pikachu", "Cramorant"],
+          "beats_es": ["Cinderace", "Pikachu", "Cramorant"]
+        }
+      ]
+    },
+    {
+      "id": "machamp",
+      "name_en": "Machamp",
+      "name_es": "Machamp",
+      "dex_id": 68,
+      "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/68.png",
+      "role": "All-Rounder",
+      "style": "Melee",
+      "attack_type": "physical",
+      "difficulty": "Beginner",
+      "builds": [
+        {
+          "name_en": "Cross Chop",
+          "name_es": "Corte Cruzado",
+          "lane_en": "Top",
+          "lane_es": "Superior",
+          "moves_en": ["Karate Chop / Cross Chop", "Low Kick / Dynamic Punch"],
+          "moves_es": ["Golpe Krate / Corte Cruzado", "Patada Baja / Dinamopunio"],
+          "unite_move_en": "Unite! Dynamic Punch",
+          "unite_move_es": "Unite! Dinamopunio",
+          "held_items": ["attackweight", "rockyhelmet", "weaknesspolicy"],
+          "held_item_alt_en": "Muscle Band",
+          "held_item_alt_es": "Banda Musculosa",
+          "battle_item": "ejectbutton",
+          "battle_item_alt": "xattack",
+          "emblem_colors_en": ["Brown", "Black"],
+          "emblem_colors_es": ["Marron", "Negro"],
+          "emblem_set_en": "6 Brown + 6 Black + 3 White",
+          "emblem_set_es": "6 Marron + 6 Negro + 3 Blanco",
+          "tips_en": [
+            "Dynamic Punch is an AoE - use in minion waves for stacked damage",
+            "You are tanky but not immortal - don't tower-dive alone",
+            "Cross Chop is your single-target execute"
+          ],
+          "tips_es": [
+            "Dinamopunio es AoE - usalo en oleadas de minions para danio apilado",
+            "Sos tanke pero no inmortal - no divees torres solo",
+            "Corte Cruzado es tu execute single-target"
+          ],
+          "counters_en": ["Pikachu (range)", "Cramorant (range)", "Mr. Mime (peel)"],
+          "counters_es": ["Pikachu (rango)", "Cramorant (rango)", "Mr. Mime (peel)"],
+          "beats_en": ["Gengar (brawl)", "Cinderace (close)", "Talonflame (predictable)"],
+          "beats_es": ["Gengar (cuerpo a cuerpo)", "Cinderace (cerca)", "Talonflame (predecible)"]
+        }
+      ]
+    },
+    {
+      "id": "mamoswine",
+      "name_en": "Mamoswine",
+      "name_es": "Mamoswine",
+      "dex_id": 473,
+      "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/473.png",
+      "role": "Defender",
+      "style": "Melee",
+      "attack_type": "physical",
+      "difficulty": "Intermediate",
+      "builds": [
+        {
+          "name_en": "Ice Quake",
+          "name_es": "Terremoto de Hielo",
+          "lane_en": "Top",
+          "lane_es": "Superior",
+          "moves_en": ["Powder Snow / Ice Fang", "Mud Slap / Earthquake"],
+          "moves_es": ["Nieve Polvo / Colmillo Hielo", "Bofeton / Terremoto"],
+          "unite_move_en": "Mamo Tank",
+          "unite_move_es": "Mamo Tanque",
+          "held_items": ["focusband", "rockyhelmet", "leftovers"],
+          "held_item_alt_en": "Aeos Cookie",
+          "held_item_alt_es": "Galleta Aeos",
+          "battle_item": "ejectbutton",
+          "battle_item_alt": "fullheal",
+          "emblem_colors_en": ["White", "Blue"],
+          "emblem_colors_es": ["Blanco", "Azul"],
+          "emblem_set_en": "6 White + 6 Blue + 3 Purple",
+          "emblem_set_es": "6 Blanco + 6 Azul + 3 Morado",
+          "tips_en": [
+            "Ice Fang slows + Earthquake is a CC chain",
+            "Your Unite Move is a team-fight setup - use when allies are close",
+            "You are the slowest Defender - use it as a frontline"
+          ],
+          "tips_es": [
+            "Colmillo Hielo ralentiza + Terremoto es cadena de CC",
+            "Tu Unite es setup de team fight - usalo cuando aliados estan cerca",
+            "Sos el Defensor mas lento - usalo como frontline"
+          ],
+          "counters_en": ["Cramorant (outrange)", "Pikachu (outrange)", "Venusaur (outrange)"],
+          "counters_es": ["Cramorant (mayor rango)", "Pikachu (mayor rango)", "Venusaur (mayor rango)"],
+          "beats_en": ["Zeraora", "Talonflame", "Lucario (brawl)"],
+          "beats_es": ["Zeraora", "Talonflame", "Lucario (cuerpo a cuerpo)"]
+        }
+      ]
+    },
+    {
+      "id": "tsareena",
+      "name_en": "Tsareena",
+      "name_es": "Tsareena",
+      "dex_id": 763,
+      "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/763.png",
+      "role": "All-Rounder",
+      "style": "Melee",
+      "attack_type": "physical",
+      "difficulty": "Intermediate",
+      "builds": [
+        {
+          "name_en": "Stomp Queen",
+          "name_es": "Reina Pison",
+          "lane_en": "Bot or Top",
+          "lane_es": "Inferior o Superior",
+          "moves_en": ["Double Kick / Stomp", "Razor Leaf / Triple Axel"],
+          "moves_es": ["Doble Patada / Pison", "Hoja Afilada / Triple Axel"],
+          "unite_move_en": "Queenly Majesty",
+          "unite_move_es": "Majestad Regia",
+          "held_items": ["muscleband", "razorclaw", "draincrown"],
+          "held_item_alt_en": "Attack Weight",
+          "held_item_alt_es": "Peso de Ataque",
+          "battle_item": "fullheal",
+          "battle_item_alt": "ejectbutton",
+          "emblem_colors_en": ["Brown", "Pink"],
+          "emblem_colors_es": ["Marron", "Rosa"],
+          "emblem_set_en": "6 Brown + 4 White + 3 Pink + 2 Blue",
+          "emblem_set_es": "6 Marron + 4 Blanco + 3 Rosa + 2 Azul",
+          "tips_en": [
+            "Anti-stun build - you are immune to CC for a long time",
+            "Stomp resets on KO - chain into carries",
+            "Triple Axel is your mobility + execute"
+          ],
+          "tips_es": [
+            "Build anti-stun - sos inmune a CC por largo tiempo",
+            "Pison se reinicia al eliminar - encadena en carries",
+            "Triple Axel es tu movilidad + execute"
+          ],
+          "counters_en": ["Pikachu (outrange)", "Cramorant (outrange)", "Sableye (steal)"],
+          "counters_es": ["Pikachu (mayor rango)", "Cramorant (mayor rango)", "Sableye (robo)"],
+          "beats_en": ["Zeraora", "Talonflame", "Lucario (brawl)"],
+          "beats_es": ["Zeraora", "Talonflame", "Lucario (cuerpo a cuerpo)"]
+        }
+      ]
+    },
+    {
+      "id": "dragonite",
+      "name_en": "Dragonite",
+      "name_es": "Dragonite",
+      "dex_id": 149,
+      "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/149.png",
+      "role": "All-Rounder",
+      "style": "Melee",
+      "attack_type": "physical",
+      "difficulty": "Expert",
+      "builds": [
+        {
+          "name_en": "Hyper Beam",
+          "name_es": "Hiperrayo",
+          "lane_en": "Top",
+          "lane_es": "Superior",
+          "moves_en": ["Dragon Tail / Dragon Dance", "Hyper Voice / Hyper Beam"],
+          "moves_es": ["Cola Dragon / Danza Dragon", "Voz Fuerte / Hiperrayo"],
+          "unite_move_en": "Draco Impact",
+          "unite_move_es": "Impacto Draco",
+          "held_items": ["chargingcharm", "razorclaw", "weaknesspolicy"],
+          "held_item_alt_en": "Attack Weight",
+          "held_item_alt_es": "Peso de Ataque",
+          "battle_item": "ejectbutton",
+          "battle_item_alt": "xspeed",
+          "emblem_colors_en": ["Brown", "Red"],
+          "emblem_colors_es": ["Marron", "Rojo"],
+          "emblem_set_en": "6 Brown + 6 Red + 3 Black",
+          "emblem_set_es": "6 Marron + 6 Rojo + 3 Negro",
+          "tips_en": [
+            "Charging Charm build - late game monster",
+            "Hyper Beam is a channel - protect yourself during it",
+            "Draco Impact is huge AoE for team fights"
+          ],
+          "tips_es": [
+            "Build de Encanto Cargador - monstruo de late game",
+            "Hiperrayo es canalizacion - protegete mientras",
+            "Impacto Draco es AoE enorme para team fights"
+          ],
+          "counters_en": ["Pikachu (outrange)", "Cramorant (outrange)", "Sableye (steal)"],
+          "counters_es": ["Pikachu (mayor rango)", "Cramorant (mayor rango)", "Sableye (robo)"],
+          "beats_en": ["Lucario (brawl)", "Machamp", "Talonflame (predictable)"],
+          "beats_es": ["Lucario (cuerpo a cuerpo)", "Machamp", "Talonflame (predecible)"]
+        }
+      ]
+    },
+    {
+      "id": "tyranitar",
+      "name_en": "Tyranitar",
+      "name_es": "Tyranitar",
+      "dex_id": 248,
+      "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/248.png",
+      "role": "All-Rounder",
+      "style": "Melee",
+      "attack_type": "physical",
+      "difficulty": "Intermediate",
+      "builds": [
+        {
+          "name_en": "Sand Tomb",
+          "name_es": "Tumba Arena",
+          "lane_en": "Top or Jungle",
+          "lane_es": "Superior o Jungla",
+          "moves_en": ["Bite / Dark Pulse", "Sand Tomb / Stone Edge"],
+          "moves_es": ["Mordisco / Pulso Umbrío", "Tumba Arena / Canto Rocoso"],
+          "unite_move_en": "Tar Shot",
+          "unite_move_es": "Disparo Alquitran",
+          "held_items": ["rockyhelmet", "weaknesspolicy", "muscleband"],
+          "held_item_alt_en": "Attack Weight",
+          "held_item_alt_es": "Peso de Ataque",
+          "battle_item": "ejectbutton",
+          "battle_item_alt": "xattack",
+          "emblem_colors_en": ["Brown", "Blue"],
+          "emblem_colors_es": ["Marron", "Azul"],
+          "emblem_set_en": "6 Brown + 6 Blue + 3 Black",
+          "emblem_set_es": "6 Marron + 6 Azul + 3 Negro",
+          "tips_en": [
+            "Sand Tomb zones enemies off objectives",
+            "Stone Edge is your big burst - combo after Bite slow",
+            "You scale with HP, not Attack - use Rocky Helmet"
+          ],
+          "tips_es": [
+            "Tumba Arena zonea enemigos de objetivos",
+            "Canto Rocoso es tu burst grande - combo tras slow de Mordisco",
+            "Escalas con HP, no Ataque - usa Casco Rocoso"
+          ],
+          "counters_en": ["Pikachu (outrange)", "Cramorant (outrange)", "Mr. Mime (peel)"],
+          "counters_es": ["Pikachu (mayor rango)", "Cramorant (mayor rango)", "Mr. Mime (peel)"],
+          "beats_en": ["Talonflame", "Zeraora (brawl)", "Lucario (brawl)"],
+          "beats_es": ["Talonflame", "Zeraora (cuerpo a cuerpo)", "Lucario (cuerpo a cuerpo)"]
+        }
+      ]
+    },
+    {
+      "id": "trevenant",
+      "name_en": "Trevenant",
+      "name_es": "Trevenant",
+      "dex_id": 709,
+      "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/709.png",
+      "role": "Defender",
+      "style": "Melee",
+      "attack_type": "physical",
+      "difficulty": "Intermediate",
+      "builds": [
+        {
+          "name_en": "Wood Hammer",
+          "name_es": "Mazazo Leñoso",
+          "lane_en": "Top or Bot",
+          "lane_es": "Superior o Inferior",
+          "moves_en": ["Branch Poke / Wood Hammer", "Astonish / Curse"],
+          "moves_es": ["Pinchazo Rama / Mazazo Leñoso", "Impresionar / Maldicion"],
+          "unite_move_en": "Phantom Forest",
+          "unite_move_es": "Bosque Fantasma",
+          "held_items": ["focusband", "rockyhelmet", "leftovers"],
+          "held_item_alt_en": "Aeos Cookie",
+          "held_item_alt_es": "Galleta Aeos",
+          "battle_item": "ejectbutton",
+          "battle_item_alt": "slowsmoke",
+          "emblem_colors_en": ["White", "Blue"],
+          "emblem_colors_es": ["Blanco", "Azul"],
+          "emblem_set_en": "6 White + 2 Blue + 2 Purple + 2 Brown",
+          "emblem_set_es": "6 Blanco + 2 Azul + 2 Morado + 2 Marron",
+          "tips_en": [
+            "Curse lets you tank insane damage - combine with Focus Band",
+            "Wood Hammer is a hard engage - chain with slow skills",
+            "Phantom Forest is a team-wipe setup, not a damage tool"
+          ],
+          "tips_es": [
+            "Maldicion te deja tanquear danio insano - combinalo con Banda Focus",
+            "Mazazo Leñoso es engage duro - encadena con skills de slow",
+            "Bosque Fantasma es setup de team-wipe, no herramienta de danio"
+          ],
+          "counters_en": ["Pikachu (range)", "Cramorant (range)", "Wigglytuff (sleep)"],
+          "counters_es": ["Pikachu (rango)", "Cramorant (rango)", "Wigglytuff (suenno)"],
+          "beats_en": ["Talonflame", "Zeraora", "Gengar (brawl)"],
+          "beats_es": ["Talonflame", "Zeraora", "Gengar (cuerpo a cuerpo)"]
+        }
+      ]
+    },
+    {
+      "id": "wigglytuff",
+      "name_en": "Wigglytuff",
+      "name_es": "Wigglytuff",
+      "dex_id": 40,
+      "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/40.png",
+      "role": "Supporter",
+      "style": "Ranged",
+      "attack_type": "special",
+      "difficulty": "Beginner",
+      "builds": [
+        {
+          "name_en": "Dazzling Song",
+          "name_es": "Cancion Deslumbrante",
+          "lane_en": "Bot with carry",
+          "lane_es": "Inferior con carry",
+          "moves_en": ["Pound / Sing", "Double Slap / Dazzling Gleam"],
+          "moves_es": ["Golpe / Canto", "Doble Bofeton / Resplandor"],
+          "unite_move_en": "Unite! Double Slap",
+          "unite_move_es": "Unite! Doble Bofeton",
+          "held_items": ["expshare", "rescuehood", "leftovers"],
+          "held_item_alt_en": "Focus Band",
+          "held_item_alt_es": "Banda Focus",
+          "battle_item": "ejectbutton",
+          "battle_item_alt": "slowsmoke",
+          "emblem_colors_en": ["White", "Pink"],
+          "emblem_colors_es": ["Blanco", "Rosa"],
+          "emblem_set_en": "6 White + 7 Pink + 2 Purple",
+          "emblem_set_es": "6 Blanco + 7 Rosa + 2 Morado",
+          "tips_en": [
+            "Sing wins team fights - aim at grouped enemies",
+            "Dazzling Gleam shreds grouped enemies",
+            "You are squishy - stay behind tanks"
+          ],
+          "tips_es": [
+            "Canto gana team fights - apuntalo a enemigos agrupados",
+            "Resplandor destroza enemigos agrupados",
+            "Sos fragil - quedate detras de tanques"
+          ],
+          "counters_en": ["Talonflame (mobile)", "Zeraora (mobile)", "Sableye (steal)"],
+          "counters_es": ["Talonflame (movil)", "Zeraora (movil)", "Sableye (robo)"],
+          "beats_en": ["Cinderace", "Pikachu", "Cramorant (peel)"],
+          "beats_es": ["Cinderace", "Pikachu", "Cramorant (peel)"]
+        }
+      ]
+    },
+    {
+      "id": "blissey",
+      "name_en": "Blissey",
+      "name_es": "Blissey",
+      "dex_id": 242,
+      "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/242.png",
+      "role": "Supporter",
+      "style": "Ranged",
+      "attack_type": "special",
+      "difficulty": "Beginner",
+      "builds": [
+        {
+          "name_en": "Soft-Boiled",
+          "name_es": "Huevo Sancochado",
+          "lane_en": "Bot with carry",
+          "lane_es": "Inferior con carry",
+          "moves_en": ["Pound / Soft-Boiled", "Egg Bomb / Helping Hand"],
+          "moves_es": ["Golpe / Huevo Sancochado", "Bomba Huevo / Mano Amiga"],
+          "unite_move_en": "Egg-streme",
+          "unite_move_es": "Huevo Extremo",
+          "held_items": ["expshare", "rescuehood", "bigroot"],
+          "held_item_alt_en": "Leftovers",
+          "held_item_alt_es": "Sobras",
+          "battle_item": "ejectbutton",
+          "battle_item_alt": "fullheal",
+          "emblem_colors_en": ["White", "Green"],
+          "emblem_colors_es": ["Blanco", "Verde"],
+          "emblem_set_en": "6 White + 6 Green + 3 Black",
+          "emblem_set_es": "6 Blanco + 6 Verde + 3 Negro",
+          "tips_en": [
+            "Soft-Boiled is your main healing - use on lowest-HP ally",
+            "Helping Hand gives attack speed to allies - use before they dive",
+            "Stay near your carry at all times"
+          ],
+          "tips_es": [
+            "Huevo Sancochado es tu sanacion principal - usala en aliado con menos HP",
+            "Mano Amiga da velocidad de ataque a aliados - usala antes de que diveen",
+            "Quedate cerca de tu carry siempre"
+          ],
+          "counters_en": ["Talonflame (mobile)", "Zeraora (mobile)", "Absol (jump-in)"],
+          "counters_es": ["Talonflame (movil)", "Zeraora (movil)", "Absol (salto)"],
+          "beats_en": ["Allies stay alive longer, score more"],
+          "beats_es": ["Los aliados viven mas, anotan mas"]
+        }
+      ]
+    },
+    {
+      "id": "eldegoss",
+      "name_en": "Eldegoss",
+      "name_es": "Eldegoss",
+      "dex_id": 830,
+      "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/830.png",
+      "role": "Supporter",
+      "style": "Ranged",
+      "attack_type": "special",
+      "difficulty": "Intermediate",
+      "builds": [
+        {
+          "name_en": "Pollen Puff",
+          "name_es": "Bola de Polen",
+          "lane_en": "Bot with carry",
+          "lane_es": "Inferior con carry",
+          "moves_en": ["Absorb / Cotton Spore", "Pollen Puff / Leaf Tornado"],
+          "moves_es": ["Absorber / Espora Algodon", "Bola de Polen / Tornado Hojas"],
+          "unite_move_en": "Cotton Cloud Crash",
+          "unite_move_es": "Choque Nube Algodon",
+          "held_items": ["expshare", "rescuehood", "leftovers"],
+          "held_item_alt_en": "Buddy Barrier",
+          "held_item_alt_es": "Barrera de Companero",
+          "battle_item": "ejectbutton",
+          "battle_item_alt": "slowsmoke",
+          "emblem_colors_en": ["White", "Red"],
+          "emblem_colors_es": ["Blanco", "Rojo"],
+          "emblem_set_en": "7 Red + 4 White + 2 Green",
+          "emblem_set_es": "7 Rojo + 4 Blanco + 2 Verde",
+          "tips_en": [
+            "Cotton Spore gives movement speed to allies - use to engage",
+            "Pollen Puff heals or damages - aim at enemies in fights, allies when safe",
+            "You are the meta support - play safe, score less, peel more"
+          ],
+          "tips_es": [
+            "Espora Algodon da velocidad de movimiento a aliados - usala para engage",
+            "Bola de Polen sana o dana - apunto a enemigos en peleas, aliados cuando seguro",
+            "Sos el soporte meta - juega seguro, anota menos, pelea mas"
+          ],
+          "counters_en": ["Talonflame (mobile)", "Zeraora (mobile)", "Absol (jump-in)"],
+          "counters_es": ["Talonflame (movil)", "Zeraora (movil)", "Absol (salto)"],
+          "beats_en": ["Cinderace", "Pikachu", "Cramorant (peel)"],
+          "beats_es": ["Cinderace", "Pikachu", "Cramorant (peel)"]
+        }
+      ]
+    },
+    {
+      "id": "azumarill",
+      "name_en": "Azumarill",
+      "name_es": "Azumarill",
+      "dex_id": 184,
+      "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/184.png",
+      "role": "All-Rounder",
+      "style": "Melee",
+      "attack_type": "physical",
+      "difficulty": "Beginner",
+      "builds": [
+        {
+          "name_en": "Aqua Tail",
+          "name_es": "Cola Aqua",
+          "lane_en": "Bot",
+          "lane_es": "Inferior",
+          "moves_en": ["Water Gun / Aqua Tail", "Bubble Beam / Play Rough"],
+          "moves_es": ["Pistola Agua / Cola Aqua", "Rayo Burbuja / Carantoñas"],
+          "unite_move_en": "Unite! Aqua Tail",
+          "unite_move_es": "Unite! Cola Aqua",
+          "held_items": ["muscleband", "attackweight", "draincrown"],
+          "held_item_alt_en": "Razor Claw",
+          "held_item_alt_es": "Garra Afilada",
+          "battle_item": "ejectbutton",
+          "battle_item_alt": "fullheal",
+          "emblem_colors_en": ["Brown", "Red"],
+          "emblem_colors_es": ["Marron", "Rojo"],
+          "emblem_set_en": "6 Brown + 6 Red + 3 White",
+          "emblem_set_es": "6 Marron + 6 Rojo + 3 Blanco",
+          "tips_en": [
+            "Aqua Tail is your AOE engage - chain with basic attacks",
+            "Play Rough stuns - use to peel or pick",
+            "Stack Attack Weight for huge late-game scaling"
+          ],
+          "tips_es": [
+            "Cola Aqua es tu engage AoE - encadena con ataques basicos",
+            "Carantoñas aturde - usala para peelear o pickear",
+            "Acumula Peso de Ataque para escalado enorme en late"
+          ],
+          "counters_en": ["Pikachu (range)", "Cramorant (range)", "Sableye (steal)"],
+          "counters_es": ["Pikachu (rango)", "Cramorant (rango)", "Sableye (robo)"],
+          "beats_en": ["Gengar (brawl)", "Talonflame (brawl)", "Zeraora (brawl)"],
+          "beats_es": ["Gengar (cuerpo a cuerpo)", "Talonflame (cuerpo a cuerpo)", "Zeraora (cuerpo a cuerpo)"]
+        }
+      ]
+    },
+    {
+      "id": "sylveon",
+      "name_en": "Sylveon",
+      "name_es": "Sylveon",
+      "dex_id": 700,
+      "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/700.png",
+      "role": "Attacker",
+      "style": "Ranged",
+      "attack_type": "special",
+      "difficulty": "Intermediate",
+      "builds": [
+        {
+          "name_en": "Hyper Voice",
+          "name_es": "Voz Fuerte",
+          "lane_en": "Bot",
+          "lane_es": "Inferior",
+          "moves_en": ["Swift / Hyper Voice", "Mystical Fire / Calm Mind"],
+          "moves_es": ["Rapido / Voz Fuerte", "Fuego Mistico / Calma"],
+          "unite_move_en": "Fairy Frolic",
+          "unite_move_es": "Juego de Hada",
+          "held_items": ["spatkspecs", "energyamplifier", "shellbell"],
+          "held_item_alt_en": "Wise Glasses",
+          "held_item_alt_es": "Gafas Sabias",
+          "battle_item": "ejectbutton",
+          "battle_item_alt": "fullheal",
+          "emblem_colors_en": ["Green", "White"],
+          "emblem_colors_es": ["Verde", "Blanco"],
+          "emblem_set_en": "6 Green + 6 White + 3 Black + 2 Blue + 2 Purple",
+          "emblem_set_es": "6 Verde + 6 Blanco + 3 Negro + 2 Azul + 2 Morado",
+          "tips_en": [
+            "Calm Mind stacks Sp. Atk - use before big fights",
+            "Hyper Voice is a long-range zone control",
+            "You are squishy - position safely"
+          ],
+          "tips_es": [
+            "Calma apila Atq. Esp. - usala antes de peleas grandes",
+            "Voz Fuerte es control de zona de largo alcance",
+            "Sos fragil - posicional segura"
+          ],
+          "counters_en": ["Talonflame (mobile)", "Zeraora (mobile)", "Absol (jump-in)"],
+          "counters_es": ["Talonflame (movil)", "Zeraora (movil)", "Absol (salto)"],
+          "beats_en": ["Snorlax", "Slowbro", "Crustle (outrange)"],
+          "beats_es": ["Snorlax", "Slowbro", "Crustle (mayor rango)"]
+        }
+      ]
+    },
+    {
+      "id": "mimikyu",
+      "name_en": "Mimikyu",
+      "name_es": "Mimikyu",
+      "dex_id": 778,
+      "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/778.png",
+      "role": "All-Rounder",
+      "style": "Melee",
+      "attack_type": "physical",
+      "difficulty": "Expert",
+      "builds": [
+        {
+          "name_en": "Shadow Claw",
+          "name_es": "Garra Sombra",
+          "lane_en": "Bot or Jungle",
+          "lane_es": "Inferior o Jungla",
+          "moves_en": ["Scratch / Shadow Claw", "Shadow Sneak / Play Rough"],
+          "moves_es": ["Aranazo / Garra Sombra", "Sombra Furtiva / Carantoñas"],
+          "unite_move_en": "Shadow Claw Storm",
+          "unite_move_es": "Tormenta de Garra Sombra",
+          "held_items": ["muscleband", "razorclaw", "weaknesspolicy"],
+          "held_item_alt_en": "Scope Lens",
+          "held_item_alt_es": "Lente de Aumento",
+          "battle_item": "xspeed",
+          "battle_item_alt": "ejectbutton",
+          "emblem_colors_en": ["Brown", "Black"],
+          "emblem_colors_es": ["Marron", "Negro"],
+          "emblem_set_en": "6 Brown + 6 Black + 3 White",
+          "emblem_set_es": "6 Marron + 6 Negro + 3 Blanco",
+          "tips_en": [
+            "Disguise is your survival tool - one free hit per engage",
+            "Shadow Sneak is a long-range engage - chain with Shadow Claw",
+            "You are slippery - use that to score and escape"
+          ],
+          "tips_es": [
+            "Disfraz es tu herramienta de supervivencia - un golpe gratis por engage",
+            "Sombra Furtiva es engage de largo alcance - encadena con Garra Sombra",
+            "Sos resbaladizo - usalo para anotar y escapar"
+          ],
+          "counters_en": ["Mr. Mime (barrier)", "Sableye (steal)", "Wigglytuff (sleep)"],
+          "counters_es": ["Mr. Mime (barrera)", "Sableye (robo)", "Wigglytuff (suenno)"],
+          "beats_en": ["Cinderace", "Pikachu", "Cramorant"],
+          "beats_es": ["Cinderace", "Pikachu", "Cramorant"]
+        }
+      ]
+    },
+    {
+      "id": "sableye",
+      "name_en": "Sableye",
+      "name_es": "Sableye",
+      "dex_id": 302,
+      "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/302.png",
+      "role": "Supporter",
+      "style": "Melee",
+      "attack_type": "physical",
+      "difficulty": "Expert",
+      "builds": [
+        {
+          "name_en": "Confuse Ray",
+          "name_es": "Rayo Confuso",
+          "lane_en": "Jungle or Bot",
+          "lane_es": "Jungla o Inferior",
+          "moves_en": ["Scratch / Confuse Ray", "Knock Off / Shadow Sneak"],
+          "moves_es": ["Aranazo / Rayo Confuso", "Desarme / Sombra Furtiva"],
+          "unite_move_en": "Unite! Knock Off",
+          "unite_move_es": "Unite! Desarme",
+          "held_items": ["expshare", "amuletcoin", "scoreshield"],
+          "held_item_alt_en": "Focus Band",
+          "held_item_alt_es": "Banda Focus",
+          "battle_item": "ejectbutton",
+          "battle_item_alt": "fullheal",
+          "emblem_colors_en": ["White", "Blue"],
+          "emblem_colors_es": ["Blanco", "Azul"],
+          "emblem_set_en": "6 White + 2 Blue + 2 Purple + 2 Brown",
+          "emblem_set_es": "6 Blanco + 2 Azul + 2 Morado + 2 Marron",
+          "tips_en": [
+            "Knock Off steals items - use on enemy carries",
+            "Confuse Ray wins 1v1s and team fights",
+            "You are a jungler that counters other junglers"
+          ],
+          "tips_es": [
+            "Desarme roba items - usalo en carries enemigos",
+            "Rayo Confuso gana 1v1s y team fights",
+            "Sos jungler que counterea a otros junglers"
+          ],
+          "counters_en": ["Snorlax (tank)", "Wigglytuff (sleep)", "Mr. Mime (peel)"],
+          "counters_es": ["Snorlax (tanque)", "Wigglytuff (suenno)", "Mr. Mime (peel)"],
+          "beats_en": ["Gengar", "Zeraora", "Talonflame (out-jungle them)"],
+          "beats_es": ["Gengar", "Zeraora", "Talonflame (out-jungleas)"]
+        }
+      ]
+    },
+    {
+      "id": "duraludon",
+      "name_en": "Duraludon",
+      "name_es": "Duraludon",
+      "dex_id": 884,
+      "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/884.png",
+      "role": "Attacker",
+      "style": "Ranged",
+      "attack_type": "physical",
+      "difficulty": "Intermediate",
+      "builds": [
+        {
+          "name_en": "Flash Cannon",
+          "name_es": "Cannon Flash",
+          "lane_en": "Bot",
+          "lane_es": "Inferior",
+          "moves_en": ["Metal Claw / Dragon Tail", "Iron Defense / Flash Cannon"],
+          "moves_es": ["Garra Metal / Cola Dragon", "Defensa Ferrea / Cannon Flash"],
+          "unite_move_en": "Steely Spire",
+          "unite_move_es": "Aguja Acerada",
+          "held_items": ["muscleband", "attackweight", "weaknesspolicy"],
+          "held_item_alt_en": "Razor Claw",
+          "held_item_alt_es": "Garra Afilada",
+          "battle_item": "ejectbutton",
+          "battle_item_alt": "xspeed",
+          "emblem_colors_en": ["Brown", "Black"],
+          "emblem_colors_es": ["Marron", "Negro"],
+          "emblem_set_en": "6 Brown + 6 Black + 3 White",
+          "emblem_set_es": "6 Marron + 6 Negro + 3 Blanco",
+          "tips_en": [
+            "Iron Defense gives you a shield - use to survive dives",
+            "Flash Cannon is a long-range burst - chain with autos",
+            "You are a hybrid attacker/all-rounder - flexible"
+          ],
+          "tips_es": [
+            "Defensa Ferrea te da escudo - usala para sobrevivir dives",
+            "Cannon Flash es burst de largo alcance - encadena con autos",
+            "Sos atacante/all-rounder hibrido - flexible"
+          ],
+          "counters_en": ["Talonflame (mobile)", "Zeraora (mobile)", "Absol (jump-in)"],
+          "counters_es": ["Talonflame (movil)", "Zeraora (movil)", "Absol (salto)"],
+          "beats_en": ["Pikachu (tankier)", "Snorlax (range)", "Crustle (range)"],
+          "beats_es": ["Pikachu (mas tanque)", "Snorlax (rango)", "Crustle (rango)"]
+        }
+      ]
+    },
+    {
+      "id": "buzzwole",
+      "name_en": "Buzzwole",
+      "name_es": "Buzzwole",
+      "dex_id": 794,
+      "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/794.png",
+      "role": "All-Rounder",
+      "style": "Melee",
+      "attack_type": "physical",
+      "difficulty": "Intermediate",
+      "builds": [
+        {
+          "name_en": "Superpower Smack",
+          "name_es": "Superpoder",
+          "lane_en": "Top or Jungle",
+          "lane_es": "Superior o Jungla",
+          "moves_en": ["Karate Chop / Smack Down", "Vital Throw / Superpower"],
+          "moves_es": ["Golpe Krate / Castigo", "Lanzamiento Vital / Superpoder"],
+          "unite_move_en": "Unite! Superpower",
+          "unite_move_es": "Unite! Superpoder",
+          "held_items": ["muscleband", "weaknesspolicy", "draincrown"],
+          "held_item_alt_en": "Attack Weight",
+          "held_item_alt_es": "Peso de Ataque",
+          "battle_item": "ejectbutton",
+          "battle_item_alt": "fullheal",
+          "emblem_colors_en": ["Brown", "Blue"],
+          "emblem_colors_es": ["Marron", "Azul"],
+          "emblem_set_en": "6 Brown + 6 Blue + 3 Red",
+          "emblem_set_es": "6 Marron + 6 Azul + 3 Rojo",
+          "tips_en": [
+            "Drain Crown is core - you sustain in long fights",
+            "Superpower has a 50% damage penalty on hit, but it's AoE",
+            "Smack Down gives slow - chain with Superpower"
+          ],
+          "tips_es": [
+            "Corona Drenante es core - tenes sustain en peleas largas",
+            "Superpoder tiene penalidad del 50% de danio al pegar, pero es AoE",
+            "Castigo da slow - encadena con Superpoder"
+          ],
+          "counters_en": ["Pikachu (range)", "Cramorant (range)", "Mr. Mime (peel)"],
+          "counters_es": ["Pikachu (rango)", "Cramorant (rango)", "Mr. Mime (peel)"],
+          "beats_en": ["Talonflame", "Zeraora (brawl)", "Lucario (brawl)"],
+          "beats_es": ["Talonflame", "Zeraora (cuerpo a cuerpo)", "Lucario (cuerpo a cuerpo)"]
+        }
+      ]
+    }
+  ]
+}
