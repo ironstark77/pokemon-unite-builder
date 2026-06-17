@@ -146,41 +146,358 @@ body {
   max-width: 1600px;
   margin: 0 auto;
 }
-@media (max-width: 1400px) {
-  .layout { 
-    grid-template-columns: 1fr; 
+/* ============================================================
+   RESPONSIVE — mobile-first
+   Default: mobile layout (selector + content stacked, no sticky)
+   Desktop: >=900px gets side-by-side layout with selector always visible
+   ============================================================ */
+
+/* Layout always stacks (mobile-first) */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* Header padding for mobile */
+.app-header {
+  padding: 0.75rem 1rem;
+}
+.app-title { font-size: 1.2rem; }
+
+/* Pokemon list: horizontal scroll on mobile (4-5 visible) */
+.pokemon-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  max-height: 280px;
+  overflow-y: auto;
+}
+.pokemon-tile {
+  flex: 0 0 calc((100% - 4 * 0.4rem) / 5); /* 5 per row on mobile */
+  min-width: 0;
+  padding: 0.4rem 0.2rem;
+}
+.pokemon-tile img {
+  width: 44px;
+  height: 44px;
+}
+.pokemon-tile .pkmn-name { font-size: 0.65rem; }
+.pokemon-tile .pkmn-role { font-size: 0.55rem; }
+
+/* Item cards: 1 col on mobile */
+.items-grid { grid-template-columns: 1fr; }
+.battle-row { grid-template-columns: 1fr; }
+.matchup-grid { grid-template-columns: 1fr; }
+.pkmn-header { flex-direction: column; text-align: center; padding: 1rem; }
+.pkmn-sprite { width: 96px; height: 96px; }
+.pkmn-name-big { font-size: 1.6rem; }
+.pkmn-tags { justify-content: center; }
+.item-slot { padding: 0.75rem; }
+.section { padding: 1rem; }
+.section h2 { font-size: 1rem; }
+
+/* On mobile: panel is a fullscreen bottom sheet when open */
+.pkmn-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  border-radius: 0;
+  overflow-y: auto;
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 1.5rem 1rem;
+  padding-top: 1rem;
+}
+.pkmn-panel.is-open {
+  transform: translateY(0);
+}
+.pkmn-panel-header { display: flex; }
+.pkmn-panel-close { display: flex; }
+
+/* Pokemon list inside open panel: larger tiles */
+.pkmn-panel .pokemon-list {
+  max-height: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+.pkmn-panel .pokemon-tile {
+  flex: none;
+  padding: 0.5rem 0.3rem;
+}
+.pkmn-panel .pokemon-tile img {
+  width: 56px;
+  height: 56px;
+}
+.pkmn-panel .pokemon-tile .pkmn-name { font-size: 0.7rem; }
+.pkmn-panel .pokemon-tile .pkmn-role { font-size: 0.6rem; }
+
+/* ============================================================
+   TABLET — foldable vertical (e.g. Z Flip open) and small tablets
+   ============================================================ */
+@media (min-width: 600px) {
+  .pokemon-list { max-height: 320px; }
+  .pokemon-tile { flex: 0 0 calc((100% - 5 * 0.4rem) / 6); }
+  .pkmn-panel .pokemon-list { grid-template-columns: repeat(5, 1fr); }
+  .pkmn-name-big { font-size: 1.8rem; }
+  .pkmn-header { flex-direction: row; text-align: left; }
+  .pkmn-tags { justify-content: flex-start; }
+  .items-grid { grid-template-columns: repeat(2, 1fr); }
+  .battle-row { grid-template-columns: 1fr 1fr; }
+  .matchup-grid { grid-template-columns: 1fr 1fr; }
+  .pkmn-sprite { width: 112px; height: 112px; }
+  .layout { padding: 1.25rem; }
+}
+
+/* ============================================================
+   FOLDABLE HORIZONTAL — Z Fold / Z Fold 2 open like a tablet
+   Galaxy Z Fold inner display: 673x841 CSS px, viewport segments
+   ============================================================ */
+@media (min-width: 700px) and (max-width: 900px) {
+  /* Use viewport segments for foldables if available */
+  @supports (display: flex) and (gap: env(fold-left, 0px)) {
+    .layout {
+      padding-left: max(1rem, env(fold-left));
+      padding-right: max(1rem, env(fold-right));
+    }
   }
-  .sidebar {
-    position: static;
+  .items-grid { grid-template-columns: repeat(3, 1fr); }
+  .pkmn-name-big { font-size: 2rem; }
+  .pkmn-sprite { width: 128px; height: 128px; }
+}
+
+/* ============================================================
+   DESKTOP — 900px+ gets side-by-side layout
+   ============================================================ */
+@media (min-width: 900px) {
+  .layout {
+    grid-template-columns: 340px 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+  }
+  .app-header { padding: 1rem 2rem; }
+  .app-title { font-size: 1.5rem; }
+  /* On desktop, hide the collapsed selector and always show the panel inline */
+  .pkmn-selector { display: none; }
+  .pkmn-panel {
+    position: sticky;
+    top: 5.5rem;
+    inset: auto;
+    transform: none;
+    border-radius: 16px;
+    max-height: calc(100vh - 6.5rem);
+    overflow-y: auto;
+    transition: none;
+  }
+  .pkmn-panel-header { display: none; }
+  .pkmn-panel-close { display: none; }
+  .pkmn-panel .pokemon-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     max-height: none;
-    overflow-y: visible;
+    overflow: visible;
   }
-  /* Make the pokemon grid more compact on mobile so it doesn't take forever to scroll past */
+  .pkmn-panel .pokemon-tile {
+    flex: none;
+  }
   .pokemon-list {
-    grid-template-columns: repeat(5, 1fr);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-height: none;
+    overflow: visible;
+  }
+  .pokemon-tile {
+    flex: none;
+  }
+  .pokemon-tile img {
+    width: 56px;
+    height: 56px;
+  }
+  .pokemon-tile .pkmn-name { font-size: 0.7rem; }
+  .pokemon-tile .pkmn-role { font-size: 0.6rem; }
+  .items-grid { grid-template-columns: repeat(3, 1fr); }
+  .pkmn-name-big { font-size: 2.2rem; }
+  .pkmn-sprite { width: 128px; height: 128px; }
+}
+
+/* ============================================================
+   LARGE DESKTOP
+   ============================================================ */
+@media (min-width: 1200px) {
+  .layout { padding: 1.5rem 2rem; }
+  .pkmn-panel .pokemon-list { grid-template-columns: repeat(3, 1fr); }
+  .pokemon-list { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ============================================================
+   TOUCH-FRIENDLY TWEAKS
+   ============================================================ */
+@media (hover: none) and (pointer: coarse) {
+  /* Touch device: bigger tap targets */
+  .pkmn-selector { padding: 1rem; }
+  .pokemon-tile { min-height: 84px; }
+  .role-chip { padding: 0.45rem 0.85rem; font-size: 0.85rem; }
+  .lang-btn { padding: 0.5rem 1rem; }
+  /* Disable hover transforms on touch */
+  .pokemon-tile:hover { transform: none; }
+  .item-slot:hover { transform: none; }
+  /* Better scroll behavior on iOS */
+  .pkmn-panel { -webkit-overflow-scrolling: touch; }
+}
+
+/* ============================================================
+   FOLDABLE-SPECIFIC — environment variables for hinge detection
+   (Chrome supports fold/unfold media features and env() for fold-* variables)
+   ============================================================ */
+@media (horizontal-viewport-segments: 2) {
+  /* Device has 2 horizontal viewport segments (fold open horizontally) */
+  .layout {
+    padding-left: env(viewport-segment-width 0 0);
+    padding-right: env(viewport-segment-width 1 0);
   }
 }
 
 /* ============================================================
-   SIDEBAR (pokemon selector)
+   SIDEBAR (pokemon selector) — mobile-first
    ============================================================ */
 .sidebar {
-  background: var(--bg-elevated);
-  border-radius: 16px;
-  border: 1px solid var(--border);
-  padding: 1.25rem;
-  position: sticky;
-  top: 5.5rem;
-  max-height: calc(100vh - 6.5rem);
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--border-bright) transparent;
+  /* No background, no padding on the wrapper; the panel handles it */
+  position: relative;
+  z-index: 50;
 }
-.sidebar::-webkit-scrollbar { width: 6px; }
-.sidebar::-webkit-scrollbar-track { background: transparent; }
-.sidebar::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 3px; }
 
-.sidebar h2 {
+/* ----- Collapsed selector button (always visible) ----- */
+.pkmn-selector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+.pkmn-selector:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-bright);
+}
+.pkmn-selector.is-active {
+  border-color: var(--accent-yellow);
+  box-shadow: var(--shadow-glow-yellow);
+}
+.pkmn-selector-content {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 0;
+  flex: 1;
+}
+.pkmn-selector-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: var(--bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.pkmn-selector-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+.pkmn-selector-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+.pkmn-selector-label {
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pkmn-selector-sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+}
+.pkmn-selector-chevron {
+  font-size: 1.4rem;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+  transition: transform 0.2s;
+}
+.pkmn-selector.is-open .pkmn-selector-chevron {
+  transform: rotate(180deg);
+}
+
+/* ----- Backdrop for mobile (taps close the panel) ----- */
+.pkmn-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 90;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s;
+}
+.pkmn-backdrop.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ----- Panel (the full selector) ----- */
+.pkmn-panel {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.25rem;
+}
+/* Panel header (close button only shown on mobile) */
+.pkmn-panel-header {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+.pkmn-panel-close {
+  display: none;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+}
+.pkmn-panel-close:hover { background: var(--bg-card-hover); }
+
+.pkmn-panel h2 {
   font-family: 'Outfit', sans-serif;
   font-size: 1rem;
   font-weight: 700;
@@ -192,7 +509,7 @@ body {
   align-items: center;
   gap: 0.5rem;
 }
-.sidebar h2::before {
+.pkmn-panel h2::before {
   content: '';
   width: 3px;
   height: 14px;
@@ -721,19 +1038,38 @@ body {
 
 <div class="layout">
   <aside class="sidebar">
-    <h2 id="sidebarTitle">Pokémon</h2>
-    <div class="filter-bar">
-      <input type="text" class="search-input" id="searchInput" placeholder="Buscar... (Pikachu)">
-      <div class="role-filter" id="roleFilter">
-        <button class="role-chip active" data-role="All" data-es="Todos" data-en="All">Todos</button>
-        <button class="role-chip" data-role="Attacker" data-es="Atacante" data-en="Attacker">Atacante</button>
-        <button class="role-chip" data-role="All-Rounder" data-es="Equilibrado" data-en="All-Rounder">Equilibrado</button>
-        <button class="role-chip" data-role="Defender" data-es="Defensor" data-en="Defender">Defensor</button>
-        <button class="role-chip" data-role="Speedster" data-es="Velocista" data-en="Speedster">Velocista</button>
-        <button class="role-chip" data-role="Supporter" data-es="Soporte" data-en="Supporter">Soporte</button>
+    <!-- Collapsed dropdown (mobile + foldable vertical) -->
+    <button class="pkmn-selector" id="pkmnSelector" aria-haspopup="listbox" aria-expanded="false">
+      <span class="pkmn-selector-content">
+        <span class="pkmn-selector-icon" id="pkmnSelectorIcon">⚔️</span>
+        <span class="pkmn-selector-text">
+          <span class="pkmn-selector-label" data-es="Elegí un Pokémon" data-en="Choose a Pokémon">Elegí un Pokémon</span>
+          <span class="pkmn-selector-sub" data-es="Tocá para ver la lista" data-en="Tap to see the list">Tocá para ver la lista</span>
+        </span>
+      </span>
+      <span class="pkmn-selector-chevron">▾</span>
+    </button>
+
+    <!-- Expanded list (default desktop / when open on mobile) -->
+    <div class="pkmn-panel" id="pkmnPanel">
+      <div class="pkmn-panel-header">
+        <h2 id="sidebarTitle">Pokémon</h2>
+        <button class="pkmn-panel-close" id="pkmnPanelClose" aria-label="Close">✕</button>
       </div>
+      <div class="filter-bar">
+        <input type="text" class="search-input" id="searchInput" placeholder="Buscar... (Pikachu)">
+        <div class="role-filter" id="roleFilter">
+          <button class="role-chip active" data-role="All" data-es="Todos" data-en="All">Todos</button>
+          <button class="role-chip" data-role="Attacker" data-es="Atacante" data-en="Attacker">Atacante</button>
+          <button class="role-chip" data-role="All-Rounder" data-es="Equilibrado" data-en="All-Rounder">Equilibrado</button>
+          <button class="role-chip" data-role="Defender" data-es="Defensor" data-en="Defender">Defensor</button>
+          <button class="role-chip" data-role="Speedster" data-es="Velocista" data-en="Speedster">Velocista</button>
+          <button class="role-chip" data-role="Supporter" data-es="Soporte" data-en="Supporter">Soporte</button>
+        </div>
+      </div>
+      <div class="pokemon-list" id="pokemonList"></div>
     </div>
-    <div class="pokemon-list" id="pokemonList"></div>
+    <div class="pkmn-backdrop" id="pkmnBackdrop"></div>
   </aside>
 
   <main class="main" id="mainContent">
@@ -943,6 +1279,7 @@ function init() {
   setupLangSwitcher();
   setupRoleFilter();
   setupSearch();
+  setupPkmnPanel();
   renderPokemonList();
 }
 
@@ -1024,8 +1361,71 @@ function renderPokemonList() {
         currentPokemon = pkmn;
         renderPokemonList();
         renderPokemonDetail(pkmn);
+        // Close mobile panel after selecting
+        closePkmnPanel();
+        // Update the collapsed selector to show the selected pokemon
+        updatePkmnSelector(pkmn);
       }
     });
+  });
+}
+
+function updatePkmnSelector(pkmn) {
+  if (!pkmn) return;
+  const icon = document.getElementById('pkmnSelectorIcon');
+  const label = document.querySelector('.pkmn-selector-label');
+  const sub = document.querySelector('.pkmn-selector-sub');
+  const selector = document.getElementById('pkmnSelector');
+  if (icon) {
+    icon.innerHTML = `<img src="${pkmn.sprite_url}" alt="${pkmn['name_' + currentLang]}">`;
+  }
+  if (label) {
+    label.textContent = pkmn['name_' + currentLang];
+    label.removeAttribute('data-es');
+    label.removeAttribute('data-en');
+  }
+  if (sub) {
+    sub.textContent = (I18N[currentLang] && I18N[currentLang][pkmn.role]) || pkmn.role;
+    sub.removeAttribute('data-es');
+    sub.removeAttribute('data-en');
+  }
+  if (selector) {
+    selector.classList.add('is-active');
+  }
+}
+
+function openPkmnPanel() {
+  document.getElementById('pkmnPanel')?.classList.add('is-open');
+  document.getElementById('pkmnBackdrop')?.classList.add('is-visible');
+  document.getElementById('pkmnSelector')?.classList.add('is-open');
+  document.getElementById('pkmnSelector')?.setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePkmnPanel() {
+  document.getElementById('pkmnPanel')?.classList.remove('is-open');
+  document.getElementById('pkmnBackdrop')?.classList.remove('is-visible');
+  document.getElementById('pkmnSelector')?.classList.remove('is-open');
+  document.getElementById('pkmnSelector')?.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+
+function setupPkmnPanel() {
+  const selector = document.getElementById('pkmnSelector');
+  const closeBtn = document.getElementById('pkmnPanelClose');
+  const backdrop = document.getElementById('pkmnBackdrop');
+  if (selector) {
+    selector.addEventListener('click', openPkmnPanel);
+  }
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closePkmnPanel);
+  }
+  if (backdrop) {
+    backdrop.addEventListener('click', closePkmnPanel);
+  }
+  // ESC to close
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closePkmnPanel();
   });
 }
 
