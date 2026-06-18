@@ -1024,6 +1024,197 @@ body {
   font-weight: 500;
   line-height: 1;
 }
+
+/* ============================================================
+   EMBLEMS — interactive board (10/10 + grid + efecto + sets)
+   ============================================================ */
+.emblems-board {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+.emblems-board-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.emblems-board-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.emblems-counter-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, rgba(74,144,226,0.15), rgba(99,178,237,0.05));
+  border: 1px solid rgba(74,144,226,0.4);
+  border-radius: 14px;
+  padding: 0.75rem 1rem;
+}
+.emblems-counter {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #4a90e2, #1c3a6e 80%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #fff;
+  border: 3px solid #62b3ed;
+  box-shadow: 0 0 12px rgba(98,179,237,0.4);
+  flex-shrink: 0;
+  font-family: 'Trebuchet MS', system-ui, sans-serif;
+  letter-spacing: -1px;
+}
+.emblems-counter-text { flex: 1; }
+.emblems-counter-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent-blue);
+  margin-bottom: 0.15rem;
+}
+.emblems-counter-sub {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  line-height: 1.3;
+}
+.efecto-actual {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+}
+.efecto-actual-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.efecto-actual-title::before {
+  content: "▶";
+  color: var(--accent-cyan);
+  font-size: 0.7rem;
+}
+.efecto-actual-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.efecto-actual-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+.efecto-actual-list li:last-child { border-bottom: none; }
+.efecto-actual-list .stat-name { color: var(--text-secondary); }
+.efecto-actual-list .stat-val { font-weight: 700; font-family: 'Trebuchet MS', monospace; }
+.efecto-actual-list .stat-val.pos { color: #4ade80; }
+.efecto-actual-list .stat-val.neg { color: #f87171; }
+.efecto-actual-list .stat-val.zero { color: var(--text-muted); }
+.efecto-actual-empty {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 0.3rem 0;
+}
+.sets-board {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+}
+.sets-board-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-purple);
+  margin-bottom: 0.5rem;
+}
+.set-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-size: 0.78rem;
+}
+.set-row:last-child { border-bottom: none; }
+.set-row-icon {
+  width: 18px; height: 18px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.set-row-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  min-width: 60px;
+}
+.set-row-thresholds {
+  display: flex;
+  gap: 3px;
+  flex: 1;
+}
+.set-row-thresh {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.55rem;
+  font-weight: 800;
+  color: #fff;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.set-row-thresh.active {
+  border-color: rgba(255,255,255,0.5);
+}
+.set-row-thresh.inactive {
+  opacity: 0.4;
+}
+.set-row-bonus {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent-yellow);
+  margin-left: 0.4rem;
+}
+.emblem-why {
+  background: linear-gradient(135deg, rgba(99,178,237,0.08), rgba(167,139,250,0.05));
+  border: 1px solid rgba(99,178,237,0.3);
+  border-left: 3px solid var(--accent-blue);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  margin-top: 0.75rem;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+.emblem-why strong {
+  color: var(--accent-blue);
+  font-weight: 700;
+}
+.emblem-why .why-em {
+  color: var(--accent-yellow);
+  font-weight: 600;
+}
+.emblem-why .why-stat {
+  color: #4ade80;
+  font-weight: 600;
+}
+
+@media (max-width: 700px) {
+  .emblems-board { grid-template-columns: 1fr; }
+}
 @media (max-width: 600px) {
   .emblem-grid { grid-template-columns: repeat(5, 1fr); gap: 0.35rem; }
   .emblem-card { padding: 0.4rem 0.2rem; }
@@ -1561,14 +1752,193 @@ function renderPokemonDetail(p) {
   const movesHtml = build['moves_' + currentLang].map(m => `<div class="move-line"><div class="move-name">${m}</div></div>`).join('');
   const uniteHtml = build['unite_move_' + currentLang] ? `<div class="move-line unite"><div class="move-label">${t.unite_move}</div><div class="move-name">${build['unite_move_' + currentLang]}</div></div>` : '';
 
-  // Emblems — show individual recommended emblems with icons + stat info
+  // Emblems — interactive board (10/10 counter + grid + efecto actual + color sets + why)
   const pkmnEmblemsData = (typeof EMBLEMS_PER_POKEMON !== 'undefined' && EMBLEMS_PER_POKEMON) ? EMBLEMS_PER_POKEMON[p.id] : null;
-  let emblemIconsHtml = '';
+  let emblemBoardHtml = '';
   let totalBonus = '';
+  let emblemWhyHtml = '';
+
+  // Helper: aggregate all_stats across the 10 emblems into a per-stat total
+  function aggregateEmblemStats(emblemsArr) {
+    const agg = {};
+    (emblemsArr || []).forEach(em => {
+      (em.all_stats || []).forEach(s => {
+        const key = s['stat_' + currentLang] || s.stat_en;
+        agg[key] = (agg[key] || 0) + (s.value || 0);
+      });
+    });
+    return agg;
+  }
+
+  // Helper: render the "efecto actual" panel
+  function renderEfectoActual(emblemsArr) {
+    if (!emblemsArr || emblemsArr.length === 0) {
+      const fallback = currentLang === 'es' ? 'Sin datos individuales.' : 'No individual stat data.';
+      return `<div class="efecto-actual"><div class="efecto-actual-title">${currentLang === 'es' ? 'Efecto actual' : 'Current effect'}</div><div class="efecto-actual-empty">${fallback}</div></div>`;
+    }
+    const agg = aggregateEmblemStats(emblemsArr);
+    const entries = Object.entries(agg).sort((a, b) => {
+      // Sort: positive first by magnitude desc, then negative by magnitude desc
+      if (a[1] >= 0 && b[1] < 0) return -1;
+      if (a[1] < 0 && b[1] >= 0) return 1;
+      return Math.abs(b[1]) - Math.abs(a[1]);
+    });
+    if (entries.length === 0) {
+      const fallback = currentLang === 'es' ? 'Los emblemas otorgan stats en su mayoría sin agregados (efectos de set).' : 'Emblems mostly grant set bonuses, no flat stat aggregates.';
+      return `<div class="efecto-actual"><div class="efecto-actual-title">${currentLang === 'es' ? 'Efecto actual' : 'Current effect'}</div><div class="efecto-actual-empty">${fallback}</div></div>`;
+    }
+    const lis = entries.map(([k, v]) => {
+      const cls = v > 0 ? 'pos' : (v < 0 ? 'neg' : 'zero');
+      const sign = v > 0 ? '+' : '';
+      // Format: if integer, no decimal; if small decimal, 1 dec; if percent, add %
+      let valStr;
+      if (Math.abs(v) >= 100 || v === Math.floor(v)) {
+        valStr = sign + v;
+      } else {
+        valStr = sign + v.toFixed(1).replace(/\.0$/, '');
+      }
+      return `<li><span class="stat-name">${k}</span><span class="stat-val ${cls}">${valStr}</span></li>`;
+    }).join('');
+    return `<div class="efecto-actual">
+      <div class="efecto-actual-title">${currentLang === 'es' ? 'Efecto actual' : 'Current effect'}</div>
+      <ul class="efecto-actual-list">${lis}</ul>
+    </div>`;
+  }
+
+  // Helper: render the color sets panel (right side)
+  function renderSetsBoard(setBonuses) {
+    if (!setBonuses || setBonuses.length === 0) {
+      // fallback: use build.emblem_set
+      const fb = (build['emblem_set_' + currentLang] || '').trim();
+      if (!fb) return '';
+      const colors = build['emblem_colors_' + currentLang] || build.emblem_colors_en || [];
+      const rows = colors.map(c => {
+        const colorData = EMBLEMS.colors[c] || EMBLEMS.colors[(c||'').toLowerCase()] || {};
+        const hex = colorData.hex || '#888';
+        const name = colorData[currentLang] || colorData.name_en || c;
+        return `<div class="set-row">
+          <span class="set-row-icon" style="background:${hex}"></span>
+          <span class="set-row-name">${name}</span>
+        </div>`;
+      }).join('');
+      return `<div class="sets-board">
+        <div class="sets-board-title">${currentLang === 'es' ? 'Sets de color' : 'Color sets'}</div>
+        ${rows}
+      </div>`;
+    }
+    const rows = setBonuses.map(sb => {
+      const colorData = EMBLEMS.colors[sb.color] || EMBLEMS.colors[(sb.color||'').toLowerCase()] || {};
+      const hex = colorData.hex || '#888';
+      const name = sb['color_es'] || sb.color || colorData[currentLang] || colorData.name_en || '';
+      const statName = sb['stat_es'] || sb.stat || '';
+      const cnt = sb.count || 0;
+      const thr = sb.threshold || 0;
+      const pct = sb.bonus_pct || 0;
+      // Build the threshold circles (only show up to the threshold; mark the rest as inactive)
+      const maxT = Math.max(thr, cnt);
+      const circles = [];
+      for (let i = 1; i <= maxT; i++) {
+        const active = i <= thr;
+        const filled = i <= cnt;
+        circles.push(`<span class="set-row-thresh ${active ? 'active' : 'inactive'}" style="${filled && active ? 'background:'+hex : ''}">${i}</span>`);
+      }
+      return `<div class="set-row">
+        <span class="set-row-icon" style="background:${hex}"></span>
+        <span class="set-row-name">${name}</span>
+        <span class="set-row-thresholds">${circles.join('')}</span>
+        <span class="set-row-bonus">+${pct}% ${statName}</span>
+      </div>`;
+    }).join('');
+    return `<div class="sets-board">
+      <div class="sets-board-title">${currentLang === 'es' ? 'Sets de color (bonus)' : 'Color sets (bonuses)'}</div>
+      ${rows}
+    </div>`;
+  }
+
+  // Helper: render the 10/10 counter wrap
+  function renderCounter(n) {
+    const title = currentLang === 'es' ? 'Emblemas equipados' : 'Emblems equipped';
+    const sub = currentLang === 'es'
+      ? 'Set completo. Los círculos grises son umbrales no alcanzados.'
+      : 'Full set. Grey circles are thresholds not reached.';
+    return `<div class="emblems-counter-wrap">
+      <div class="emblems-counter">${n}/10</div>
+      <div class="emblems-counter-text">
+        <div class="emblems-counter-title">${title}</div>
+        <div class="emblems-counter-sub">${sub}</div>
+      </div>
+    </div>`;
+  }
+
+  // Helper: generate the "Why these emblems" explanation based on role, attack_type, and set bonuses
+  function renderWhy() {
+    if (!pkmnEmblemsData || !pkmnEmblemsData.set_bonuses || pkmnEmblemsData.set_bonuses.length === 0) {
+      // fallback explanation using role + attack_type
+      const roleName = (DATA.roles && DATA.roles[p.role] && (DATA.roles[p.role]['name_' + currentLang] || DATA.roles[p.role].name_en)) || p.role;
+      const atkName = p.attack_type === 'special' ? (currentLang === 'es' ? 'daño especial' : 'special damage')
+                    : p.attack_type === 'physical' ? (currentLang === 'es' ? 'daño físico' : 'physical damage')
+                    : (currentLang === 'es' ? 'daño mixto' : 'mixed damage');
+      const txt = currentLang === 'es'
+        ? `Los colores <strong>${(build.emblem_colors_es || []).join(' + ')}</strong> maximizan el <span class="why-stat">${roleName}</span> priorizando <span class="why-stat">${atkName}</span>. ${build.emblem_set_es || ''}`
+        : `The <strong>${(build.emblem_colors_en || []).join(' + ')}</strong> colors maximize <span class="why-stat">${roleName}</span> by prioritizing <span class="why-stat">${atkName}</span>. ${build.emblem_set_en || ''}`;
+      return `<div class="emblem-why">${txt}</div>`;
+    }
+
+    const roleName = (DATA.roles && DATA.roles[p.role] && (DATA.roles[p.role]['name_' + currentLang] || DATA.roles[p.role].name_en)) || p.role;
+    const styleName = (DATA.styles && DATA.styles[p.style] && (DATA.styles[p.style]['name_' + currentLang] || DATA.styles[p.style].name_en)) || p.style;
+    const atkName = p.attack_type === 'special' ? (currentLang === 'es' ? 'daño especial' : 'special damage')
+                  : p.attack_type === 'physical' ? (currentLang === 'es' ? 'daño físico' : 'physical damage')
+                  : (currentLang === 'es' ? 'mixto' : 'mixed');
+
+    // Aggregate stat values from emblems
+    const agg = aggregateEmblemStats(pkmnEmblemsData.emblems);
+
+    // Identify the 2 most positive stats
+    const posStats = Object.entries(agg).filter(([k, v]) => v > 0).sort((a, b) => b[1] - a[1]);
+    const top2 = posStats.slice(0, 2);
+    const topStatsText = top2.map(([k, v]) => {
+      const sign = v > 0 ? '+' : '';
+      const valStr = Math.abs(v) >= 100 || v === Math.floor(v) ? sign + v : sign + v.toFixed(1).replace(/\.0$/, '');
+      return `<span class="why-stat">${valStr} ${k}</span>`;
+    }).join(currentLang === 'es' ? ' y ' : ' and ');
+
+    // Set bonuses summary
+    const setTexts = pkmnEmblemsData.set_bonuses.map(sb => {
+      const c = sb['color_es'] || sb.color;
+      const s = sb['stat_es'] || sb.stat;
+      return `+${sb.bonus_pct}% ${s}`;
+    });
+    const setsLine = setTexts.join(currentLang === 'es' ? ' + ' : ' + ');
+
+    // Specific emblems that anchor the build
+    const topEmblems = pkmnEmblemsData.emblems.slice(0, 3).map(em => {
+      return `<span class="why-em">${em['name_' + currentLang] || em.name_en}</span>`;
+    }).join(', ');
+
+    let explanation;
+    if (currentLang === 'es') {
+      explanation = `
+        <strong>Por qué estos emblemas para ${p.name_es}:</strong><br>
+        ${p.name_es} es un <strong>${roleName}</strong> de estilo <strong>${styleName}</strong> basado en <span class="why-stat">${atkName}</span>.
+        El set prioriza <strong>${(pkmnEmblemsData.emblems[0] && (pkmnEmblemsData.emblems[0]['color_es'] || pkmnEmblemsData.emblems[0].color)) || pkmnEmblemsData.primary_color_es}</strong> como color principal
+        para activar los bonus de set <strong>${setsLine}</strong>, que son los que más potencian este Pokémon en el meta actual.<br>
+        Los emblemas ancla del build son ${topEmblems}, elegidos por aportar <span class="why-stat">${topStatsText}</span> al stat principal del Pokémon sin sacrificar otros.
+        Este balance es el que usan las builds top de <strong>${build['name_' + currentLang] || build.name_en}</strong> en el parche actual.`;
+    } else {
+      explanation = `
+        <strong>Why these emblems for ${p.name_en}:</strong><br>
+        ${p.name_en} is a <strong>${roleName}</strong> with <strong>${styleName}</strong> style, built around <span class="why-stat">${atkName}</span>.
+        The set prioritizes <strong>${(pkmnEmblemsData.emblems[0] && pkmnEmblemsData.emblems[0].color) || pkmnEmblemsData.primary_color}</strong> as the primary color
+        to activate the set bonuses <strong>${setsLine}</strong>, which are what powers this Pokémon in the current meta.<br>
+        The anchor emblems are ${topEmblems}, chosen for contributing <span class="why-stat">${topStatsText}</span> to the Pokémon's main stat without sacrificing others.
+        This balance is what top <strong>${build['name_' + currentLang] || build.name_en}</strong> builds use in the current patch.`;
+    }
+    return `<div class="emblem-why">${explanation}</div>`;
+  }
+
   if (pkmnEmblemsData && pkmnEmblemsData.emblems && pkmnEmblemsData.emblems.length > 0) {
-    // Use the first 10 emblems (max in-game)
     const emblemsToShow = pkmnEmblemsData.emblems.slice(0, 10);
-    emblemIconsHtml = emblemsToShow.map((em, idx) => {
+    const gridHtml = emblemsToShow.map((em, idx) => {
       const colorHex = (EMBLEMS.colors[em.color] && EMBLEMS.colors[em.color].hex) || '#888';
       const pkmnName = em['name_' + currentLang] || em.name_en;
       const stat = em['stat_' + currentLang] || em.stat_en;
@@ -1585,13 +1955,53 @@ function renderPokemonDetail(p) {
         </div>
       `;
     }).join('');
+
+    emblemBoardHtml = `
+      <div class="emblems-board">
+        <div class="emblems-board-left">
+          ${renderCounter(emblemsToShow.length)}
+          <div class="emblem-grid">${gridHtml}</div>
+        </div>
+        <div class="emblems-board-right">
+          ${renderEfectoActual(emblemsToShow)}
+          ${renderSetsBoard(pkmnEmblemsData.set_bonuses)}
+        </div>
+      </div>
+    `;
+    emblemWhyHtml = renderWhy();
     totalBonus = pkmnEmblemsData['total_bonus_' + currentLang] || pkmnEmblemsData.total_bonus_en || '';
   } else {
     // Fallback: just show the colors
-    emblemIconsHtml = (build['emblem_colors_' + currentLang] || []).map(c => {
+    const fallbackGrid = (build['emblem_colors_' + currentLang] || []).map(c => {
       const colorData = EMBLEMS.colors[c] || {};
-      return `<span class="emblem-pill"><span class="dot" style="background:${colorData.hex || '#888'}"></span>${c}</span>`;
+      const hex = colorData.hex || '#888';
+      const name = colorData[currentLang] || colorData.name_en || c;
+      return `<div class="emblem-card" title="${name}">
+        <div class="emblem-card-icon" style="border-color:${hex}; display:flex;align-items:center;justify-content:center;font-size:2rem">${(name[0]||'?').toUpperCase()}</div>
+        <div class="emblem-card-name">${name}</div>
+        <div class="emblem-card-stat">${(build.emblem_set_es || build.emblem_set_en || '').split('+').find(s => s.includes(c.split(' ')[0])) || ''}</div>
+      </div>`;
     }).join('');
+    const cTitle = currentLang === 'es' ? 'Emblemas equipados' : 'Emblems equipped';
+    const cSub = currentLang === 'es' ? 'Colores del set (sin detalle individual).' : 'Set colors (no per-emblem detail).';
+    emblemBoardHtml = `
+      <div class="emblems-board">
+        <div class="emblems-board-left">
+          <div class="emblems-counter-wrap">
+            <div class="emblems-counter">10/10</div>
+            <div class="emblems-counter-text">
+              <div class="emblems-counter-title">${cTitle}</div>
+              <div class="emblems-counter-sub">${cSub}</div>
+            </div>
+          </div>
+          <div class="emblem-grid">${fallbackGrid}</div>
+        </div>
+        <div class="emblems-board-right">
+          ${renderEfectoActual([])}
+        </div>
+      </div>
+    `;
+    emblemWhyHtml = renderWhy();
   }
   const emblemSetText = build['emblem_set_' + currentLang] || '';
 
@@ -1663,10 +2073,11 @@ function renderPokemonDetail(p) {
       <h2><span class="icon emblems">💎</span> ${t.emblems}</h2>
       <div class="emblems-set">
         <div style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:0.5rem">${t.chose}</div>
-        <div class="emblem-grid">${emblemIconsHtml}</div>
+        ${emblemBoardHtml}
+        ${emblemWhyHtml}
         ${totalBonus ? `<div class="emblem-bonuses" style="margin-top:0.75rem"><strong>${currentLang === 'es' ? 'Total del set' : 'Set total'}:</strong> ${totalBonus}</div>` : ''}
         ${emblemSetText ? `<div class="emblem-bonuses" style="margin-top:0.5rem"><strong>${build['name_' + currentLang]}:</strong> ${emblemSetText}</div>` : ''}
-        <div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.5rem">${currentLang === 'es' ? 'Emblemas específicos del meta (AeroKita FoxForge-GG). Cada tarjeta muestra el stat individual que aporta.' : 'Specific meta emblems (AeroKita FoxForge-GG). Each card shows the individual stat contribution.'}</div>
+        <div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.5rem">${currentLang === 'es' ? 'Set de emblemas recomendado (AeroKita FoxForge-GG). El panel "Efecto actual" muestra los stats agregados; los círculos de color muestran los umbrales de bonus de set alcanzados.' : 'Recommended emblem set (AeroKita FoxForge-GG). The "Current effect" panel shows aggregated stats; color circles show reached set bonus thresholds.'}</div>
       </div>
     </div>
 
