@@ -1,0 +1,24 @@
+# Pokemon UNITE Build Maker
+# Data
+data/
+.backups/
+
+# Local config (secrets)
+.env
+*.env
+!.env.example
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
